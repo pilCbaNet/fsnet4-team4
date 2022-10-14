@@ -1,0 +1,11 @@
+
+footer {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+
+}
+
