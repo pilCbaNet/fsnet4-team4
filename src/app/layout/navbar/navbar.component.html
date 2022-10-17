@@ -3,17 +3,16 @@
     <button
       class="navbar-toggler"
       type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <i class="fas fa-bars"></i>
+      <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+      <a class="navbar-brand" href="#">
         <img
           src="./../../../favicon.png"
           alt="Logo"
@@ -21,31 +20,24 @@
           height="22"
         />
       </a>
-
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Inicio</a>
+          <a class="nav-link" aria-current="page" href="#">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Comprar</a>
+          <a class="nav-link" aria-current="page" href="#">Servicios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Vender</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">¿Quiénes Somos?</a>
+          <a class="nav-link" aria-current="page" href="#">Quienes somos?</a>
         </li>
       </ul>
+      <form class="d-flex">
+        <button type="button" class="btn btn-light btn-lg login">Ingresar</button>
+        <button type="button" class="btn btn-primary me-3 btn-lg signup">
+          Registrarse
+        </button>
+        
+      </form>
     </div>
-
-    <div class="d-flex align-items-center">
-      <button type="button" class="btn btn-link px-3 me-2">
-        Ingresar
-      </button>
-      <button type="button" class="btn btn-primary me-3">
-        Registrarse
-      </button>
-    </div>
-
   </div>
 </nav>

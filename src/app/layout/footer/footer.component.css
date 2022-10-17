@@ -1,5 +1,19 @@
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  
+}
+
+.logo{
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.titulo{
+  font-weight: bold;
+  font-size: 17px;
+}
