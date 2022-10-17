@@ -1,5 +1,6 @@
 
 footer {
+<<<<<<< HEAD
 
   display: flex;
   flex-wrap: wrap;
@@ -7,5 +8,10 @@ footer {
   position: absolute;
   bottom: 0;
 
+=======
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+>>>>>>> parent of b34a3d3 (se hicieron nuevos cambios en el footer para ajustarlo a la parte inferior de la pantalla)
 }
 
