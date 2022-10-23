@@ -8,6 +8,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HeaderComponent } from './layout/header/header.component';
     HeaderComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule
   ],
