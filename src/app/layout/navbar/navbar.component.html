@@ -33,77 +33,35 @@
       </ul>
       <form class="d-flex">
         
-        <button type="button" class="btn btn-light btn-lg login" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button (click)="mostrarLogin()" type="button" class="btn btn-light btn-lg login" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false"  >
           Ingresar
         </button>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title text-danger" id="exampleModalLabel">INGRESO</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <button type="button" class="btn btn-primary">Ingresar</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
         
-        <button type="button" class="btn btn-primary me-3 btn-lg signup" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        
+        <button (click)="mostrarRegistro()" type="button" class="btn btn-primary me-3 btn-lg signup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false">
           Registrarse
         </button>
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title text-danger" id="exampleModalLabel">Registro</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Nombre Completo</label>
-                    <input type="name" class="form-control" id="examplename" aria-describedby="nameHelp">
-                    
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword2" class="form-label">Crear Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2">
-                    <label for="exampleInputPassword2" class="form-label">Repetir Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2">
-                  </div>
-                  <button type="button" class="btn btn-primary">Iniciar Registro</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-              </div>
+      </form>
+      <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-danger" id="exampleModalLabel">{{modalTitle}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="reiniciarVariableModal()" ></button>
+            </div>
+            <div *ngIf="login" class="modal-body">
+              <app-login></app-login>
+            </div>
+            <div *ngIf="register" class="modal-body">
+              <app-register></app-register>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="reiniciarVariableModal()">Cerrar</button>
             </div>
           </div>
         </div>
-        
-      </form>
+      </div>
     </div>
   </div>
 </nav>
