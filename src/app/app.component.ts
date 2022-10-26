@@ -9,14 +9,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class AppComponent {
   title = 'crypto-exchange';
-//Form Validables 
+//Form Validables
   registerForm!: FormGroup;
 submitted = false;
 constructor( private formBuilder: FormBuilder){}
 //Add user form actions
 get f() { return this.registerForm.controls; }
 onSubmit() {
-  
+
   this.submitted = true;
   // stop here if form is invalid
   if (this.registerForm.invalid) {
@@ -27,7 +27,7 @@ onSubmit() {
   {
     alert("Great!!");
   }
- 
+
 }
   ngOnInit() {
     //Add User form validations
