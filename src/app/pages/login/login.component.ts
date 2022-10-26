@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Login } from 'src/app/models/login';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private myService:LoginService,private router:Router) {
     this.form = this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -25,4 +28,17 @@ export class LoginComponent implements OnInit {
   {
     return this.form.get("password");
   }
+
+  login(){
+    if(this.form.valid){
+      let email:string = this.form.get('mail')?.value;
+      let password:string = this.form.get('password')?.value;
+      let login: Login = new Login(email,password)
+      this.myService.login(login).subscribe(respuesta=>{
+      this.router.navigate(['ultimos-movimientos'])
+      })
+    }
+  }
+
+
 }

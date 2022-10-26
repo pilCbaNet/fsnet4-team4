@@ -1,0 +1,72 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "login": [
+    {
+      "id": 1,
+      "email": "marcosjmarin@hotmail.com",
+      "nombre": "Marcos Marin",
+      "dni": 41264765,
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "email": "martin@hotmail.com",
+      "nombre": "Martin Perez",
+      "dni": 12652021,
+      "password": "1234"
+    },
+    {
+      "email": "olivia@hotmail.com",
+      "password": "12313",
+      "id": 3
+    }
+  ],
+  "registro": [
+    {
+      "id": 1,
+      "email": "marcosjmarin@hotmail.com",
+      "nombre": "Marcos Marin",
+      "dni": 41264765,
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "email": "martin@hotmail.com",
+      "nombre": "Martin Perez",
+      "dni": 12652021,
+      "password": "1234"
+    },
+    {
+      "email": "marcos_late@hotmail.com",
+      "password1": "1234",
+      "password2": "1234",
+      "dni": 2131,
+      "nombre": "jose",
+      "id": 3
+    }
+  ],
+  "cuenta": [
+    {
+      "id": 1,
+      "operacion": "Extraccion",
+      "fecha": "15/05/2020",
+      "monto": 200
+    }
+  ]
+}
