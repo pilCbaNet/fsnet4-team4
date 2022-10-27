@@ -64,9 +64,57 @@
   "cuenta": [
     {
       "id": 1,
+      "operacion": "Deposito",
+      "moneda": "USDT",
+      "unidades": 333,
+      "importeArs": 130000,
+      "fecha": "11/09/2021 11:32",
+      "hashOperacion": 3101512
+    },
+    {
+      "id": 2,
+      "operacion": "Deposito",
+      "moneda": "Ethereum",
+      "unidades": 0.0001,
+      "importeArs": 30000,
+      "fecha": "15/02/2022 11:32",
+      "hashOperacion": 1001512
+    },
+    {
+      "id": 3,
+      "operacion": "Deposito",
+      "moneda": "Bitcoin",
+      "unidades": 0.0024,
+      "importeArs": 35700,
+      "fecha": "15/02/2022 05:39",
+      "hashOperacion": 9210513
+    },
+    {
+      "id": 4,
       "operacion": "Extraccion",
-      "fecha": "15/05/2020",
-      "monto": 200
+      "moneda": "Ethereum",
+      "unidades": 0.0144,
+      "importeArs": 70100,
+      "fecha": "25/02/2022 12:00",
+      "hashOperacion": 514214
+    },
+    {
+      "id": 5,
+      "operacion": "Deposito",
+      "moneda": "USDT",
+      "unidades": 0.0001,
+      "importeArs": 4,
+      "fecha": "13/07/2022 13:31",
+      "hashOperacion": 5150102
+    },
+    {
+      "id": 6,
+      "operacion": "Deposito",
+      "moneda": "Ethereum",
+      "unidades": 1.301,
+      "importeArs": 223300,
+      "fecha": "15/05/2022 18:21",
+      "hashOperacion": 3169139
     }
   ]
 }

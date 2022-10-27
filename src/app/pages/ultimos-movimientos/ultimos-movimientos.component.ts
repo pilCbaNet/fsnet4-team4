@@ -12,14 +12,13 @@ export class UltimosMovimientosComponent implements OnInit {
   constructor(private myService: CuentaService) 
   {
    
-   }
+  }
 
   ngOnInit(): void {
     this.getAll();
   }
 
   getAll(){
-      this.myService.obtenerUltimosMovimientos().subscribe((data=>{this.movimientos = data}))
+    this.myService.obtenerUltimosMovimientos().subscribe((data=>{this.movimientos = data}))
   }
-
 }

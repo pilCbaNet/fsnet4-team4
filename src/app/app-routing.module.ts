@@ -7,15 +7,7 @@ import { UltimosMovimientosComponent } from './pages/ultimos-movimientos/ultimos
 
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'Inicio',
-    pathMatch: 'full'
-  },
-  { 
-    path: 'inicio',
-    component: LandingComponent
-  },
+  { path: 'inicio', component: LandingComponent},
   {path:'servicios', component: ServiciosComponent},
   {path:'ultimos-movimientos', component: UltimosMovimientosComponent},
   {path:'cotizaciones', component: CotizacionesComponent},
