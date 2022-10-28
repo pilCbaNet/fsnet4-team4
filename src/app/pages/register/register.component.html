@@ -1,0 +1,48 @@
+<form [formGroup]="form">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre Completo</label>
+      <input  type="text"  id="nombre"  class="form-control" formControlName="nombre">
+      <div *ngIf="Nombre?.errors  && Nombre?.touched">
+        <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+          El nombre es requerido.
+        </p>
+    </div>
+    </div>
+    <div class="mb-3">
+        <label for="dni" class="form-label">DNI</label>
+        <input type="number" id="dni"   class="form-control" formControlName="dni" aria-describedby="nameHelp">
+        <div *ngIf="Dni?.errors  && Dni?.touched">
+            <p *ngIf="Dni?.hasError('required')" class="text-danger">
+              El dni es requerido.
+            </p>
+        </div>
+      </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email"  class="form-control" formControlName="email" aria-describedby="emailHelp">
+      <div *ngIf="Mail?.errors  && Mail?.touched">
+        <p *ngIf="Mail?.hasError('required')" class="text-danger">
+          El email es requerido.
+        </p>
+    </div>
+    </div>
+    <div class="mb-3">
+      <label for="contraseña" class="form-label">Crear Contraseña</label>
+      <input  type="password" id="password1"  class="form-control" formControlName="password1">
+      <div *ngIf="Password1?.errors  && Password1?.touched">
+        <p *ngIf="Password1?.hasError('required')" class="text-danger">
+          El password es requerido.
+        </p>
+      </div>
+      <label for="repetir" class="form-label">Repetir Contraseña</label>
+      <input type="password" id="password2"  class="form-control" formControlName="password2">
+      <div *ngIf="Password2?.errors  && Password2?.touched">
+        <p *ngIf="Password2?.hasError('required')" class="text-danger">
+          Repita contraseña.
+        </p>
+    </div>
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary btn-lg" (click)="register()" data-bs-dismiss="modal">Registrarse</button>
+    </div>
+  </form>
