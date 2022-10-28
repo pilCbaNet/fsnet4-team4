@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
 
       let register: Register = new Register(email,password1,password2,dni,nombre);
       this.myService.register(register).subscribe(respuesta=>{
-      this.router.navigate(['servicios']);
+      this.router.navigate(['ultimos-movimientos']);
       })
       
     }

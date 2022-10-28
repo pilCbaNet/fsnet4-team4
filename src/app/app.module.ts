@@ -13,6 +13,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CotizacionesComponent } from './layout/cotizaciones/cotizaciones.component';
 import { UltimosMovimientosComponent } from './pages/ultimos-movimientos/ultimos-movimientos.component';
+import { DepositoComponent } from './pages/deposito/deposito.component';
+import { TransferirComponent } from './pages/transferir/transferir.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { UltimosMovimientosComponent } from './pages/ultimos-movimientos/ultimos
     LoginComponent,
     RegisterComponent,
     CotizacionesComponent,
-    UltimosMovimientosComponent
+    UltimosMovimientosComponent,
+    DepositoComponent,
+    TransferirComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -34,7 +38,9 @@ import { UltimosMovimientosComponent } from './pages/ultimos-movimientos/ultimos
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    
 
   ],
   providers: [],

@@ -13,4 +13,9 @@ export class CuentaService {
   {
     return this.http.get('http://localhost:3000/cuenta');
   }
+  depositar(cuenta:Cuenta):Observable<any>{
+
+    return this.http.post('http://localhost:3000/cuenta',cuenta);
+
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CuentaService } from 'src/app/services/cuenta.service';
+import { DepositoComponent } from '../deposito/deposito.component';
 
 @Component({
   selector: 'app-ultimos-movimientos',
@@ -13,6 +14,11 @@ export class UltimosMovimientosComponent implements OnInit {
   {
    
   }
+
+  ngOnChanges():void{
+    location.reload();
+  }
+ 
 
   ngOnInit(): void {
     this.getAll();
