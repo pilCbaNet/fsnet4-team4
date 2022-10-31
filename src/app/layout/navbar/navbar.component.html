@@ -35,13 +35,13 @@
         </li>
       </ul>
       <form class="d-flex">
-        
+
         <button (click)="mostrarLogin()" type="button" class="btn btn-light btn-lg login" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false"  >
           Ingresar
         </button>
 
-        
-        
+
+
         <button (click)="mostrarRegistro()" type="button" class="btn btn-primary me-3 btn-lg signup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false">
           Registrarse
         </button>
@@ -50,7 +50,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-danger" id="exampleModalLabel">{{modalTitle}}</h5>
+              <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="reiniciarVariableModal()" ></button>
             </div>
             <div *ngIf="login" class="modal-body">

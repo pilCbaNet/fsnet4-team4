@@ -40,7 +40,7 @@ export class CotizacionesComponent implements OnInit {
     'Moneda',
     'Precio',
     'Cambio de Precio',
-    'Volumen en 24 h'
+    'Volumen en 24h'
   ]
 
   searchText = '';
