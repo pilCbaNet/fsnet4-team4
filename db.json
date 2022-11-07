@@ -66,6 +66,33 @@
       "id": 3
     }
   ],
+  "monedas": [
+    {
+      "nombre": "Bitcoin",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/btc.svg",
+      "cotizacion": 6086056.48
+    },
+    {
+      "nombre": "Ethereum",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/eth.svg",
+      "cotizacion": 463654.12
+    },
+    {
+      "nombre": "USDT",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/usdt.svg",
+      "cotizacion": 296.00
+    },
+    {
+      "nombre": "DAI",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/dai.svg",
+      "cotizacion": 312.96
+    },
+    {
+      "nombre": "USDC",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/usdc.svg",
+      "cotizacion": 311.30
+    }
+  ],
   "cuenta": [
     {
       "id": 1,
