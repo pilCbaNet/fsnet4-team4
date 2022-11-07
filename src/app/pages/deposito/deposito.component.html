@@ -1,14 +1,21 @@
 <form [formGroup]="form">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label"
-      >Moneda</label
+      >Moneda
+    </label>
+    <select 
+      id="moneda" 
+      [(ngModel)]="seleccionado" 
+      (change)="ShowSelected();" 
+      formControlName="moneda" 
+      class="form-control"
     >
-    <select formControlName="moneda" id="moneda" [(ngModel)]="seleccionado" (change)="ShowSelected();" class="form-control">
-        <option [ngValue]="element" *ngFor="let element of cotizaciones" >{{element.name }}</option>
-        </select>
+      <option [ngValue]="moneda" *ngFor="let moneda of monedas">{{ moneda.nombre }}</option>
+    </select>
   </div>
+
   <div class="mb-3">
-    <label for="unidades" class="form-label"  >Unidades</label>
+    <label for="unidades" class="form-label">Unidades</label>
     <input
       type="number"
       class="form-control"
@@ -16,10 +23,8 @@
       id="unidades"
       [(ngModel)]="unidades" 
     />
-    <div *ngIf="Unidades?.errors  && Unidades?.touched">
-        <p *ngIf="Unidades?.hasError('required')" class="text-danger">
-          Unidad requerida
-        </p>
+      <div *ngIf="Unidades?.errors  && Unidades?.touched">
+          <p *ngIf="Unidades?.hasError('required')" class="text-danger">Unidad requerida</p>
       </div>
   </div>
   <div class="mb-3">

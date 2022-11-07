@@ -1,28 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
-import { FormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Coin } from 'src/app/models/coin';
 import { Cuenta } from 'src/app/models/cuenta';
 import { CuentaService } from 'src/app/services/cuenta.service';
-
 
 @Component({
   selector: 'app-deposito',
   templateUrl: './deposito.component.html',
   styleUrls: ['./deposito.component.css']
 })
-export class DepositoComponent implements OnInit {
 
+export class DepositoComponent implements OnInit {
   form: FormGroup;
   constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
       unidades: ['', [Validators.required]],
     });
-   }
+  }
   
-  cotizaciones:any;
+  monedas:any;
   unidades:number = 0;
   seleccionado: any;
   precio: number = 0;
@@ -32,17 +29,12 @@ export class DepositoComponent implements OnInit {
     this.cerrar = false;
   }
 
- 
-ShowSelected()
-{
-  console.log(this.seleccionado.name)
-  console.log(this.seleccionado.current_price)
-  this.precio = this.seleccionado.current_price;
-
-}
+  ShowSelected(){
+    this.precio = this.seleccionado.cotizacion;
+  }
 
   getAll(){
-    this.service.obtenerMonedas().subscribe((data:any)=>{this.cotizaciones = data})
+    this.service.obtenerMonedas().subscribe((data:any)=>{this.monedas = data})
   }
 
   depositar(){
@@ -65,11 +57,8 @@ ShowSelected()
   generarHash():number{
     return Math.floor(Math.random()*1000000)
   }
-
   
   get Unidades(){
     return this.form.get("unidades")
   }
-  
-
 }

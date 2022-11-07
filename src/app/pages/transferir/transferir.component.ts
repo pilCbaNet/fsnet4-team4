@@ -1,20 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
-import { FormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Coin } from 'src/app/models/coin';
 import { Cuenta } from 'src/app/models/cuenta';
 import { CuentaService } from 'src/app/services/cuenta.service';
-import { UltimosMovimientosComponent } from '../ultimos-movimientos/ultimos-movimientos.component';
 import { Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-transferir',
   templateUrl: './transferir.component.html',
   styleUrls: ['./transferir.component.css']
 })
+
 export class TransferirComponent implements OnInit {
 
   form: FormGroup;
@@ -23,9 +19,9 @@ export class TransferirComponent implements OnInit {
       moneda: ['', [Validators.required,]],
       unidades: ['', [Validators.required]],
     });
-   }
+  }
   
-  cotizaciones:any;
+  monedas:any;
   unidades:number = 0;
   seleccionado: any;
   precio: number = 0;
@@ -35,17 +31,12 @@ export class TransferirComponent implements OnInit {
     this.cerrar = false;
   }
 
- 
-ShowSelected()
-{
-  console.log(this.seleccionado.name)
-  console.log(this.seleccionado.current_price)
-  this.precio = this.seleccionado.current_price;
-
-}
+  ShowSelected(){
+    this.precio = this.seleccionado.cotizacion;
+  }
 
   getAll(){
-    this.service.obtenerMonedas().subscribe((data:any)=>{this.cotizaciones = data})
+    this.service.obtenerMonedas().subscribe((data:any)=>{this.monedas = data})
   }
 
   retirar(){
@@ -58,8 +49,6 @@ ShowSelected()
       let hashOperacion = this.generarHash();
       let cuenta: Cuenta= new Cuenta(operacion,moneda,unidades,importeArs,fecha,hashOperacion)
       this.myService.depositar(cuenta).subscribe();
-      
-      
     }
     else{
       alert("Complete todos los campos!")
@@ -68,14 +57,11 @@ ShowSelected()
 
   refresh(): void { window.location.reload(); }
 
-
   generarHash():number{
     return Math.floor(Math.random()*1000000)
   }
-
   
   get Unidades(){
     return this.form.get("unidades")
   }
-  
 }
