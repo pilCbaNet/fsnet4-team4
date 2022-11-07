@@ -1,58 +1,31 @@
 <div class="container">
-  <h2 class="text-dark">Precios de las criptomonedas según la capitalización de mercado
-  </h2>
-  <p class="parrafo-uno">Hoy, la capitalización de mercado global de las criptomonedas es de <span class="text-success">1 billón $</span>, lo que supone
-    un cambio del <span class="text-success">3.4%</span> en las últimas 24 horas.
-    <a id="hideTextBtn"
-      (click)="leerMas()">Leér mas
-    </a>
+  <h2 class="text-dark">Precios de las criptomonedas según la capitalización de mercado</h2>
+  <p class="parrafo-uno">
+    Hoy, la capitalización de mercado global de las criptomonedas es de 1 billón $, lo que supone un cambio del 
+    <span class="text-success">3.4%</span> 
+    en las últimas 24 horas.
+    <a id="hideTextBtn" (click)="leerMas()">Leér mas</a>
   </p>
-  <label id="inputSearch" class="text-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-      fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" id="iconSearch">
-      <path
-        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-    </svg>
-    <input type="text" id="inputSearch" name="inputSearch"
-      class="form-control bg-dark text-light border-0 my-4 mt-0 text-center rounded-0" (keyup)="searchCoin()"
-      [(ngModel)]="searchText">
-  </label>
 
   <table class="table table-dark">
 
     <thead>
       <tr>
-        <th *ngFor="let title of titles;">
-          {{title}}
-        </th>
+        <th *ngFor="let title of titles;">{{title}}</th>
       </tr>
     </thead>
 
     <tbody>
-
-      <tr *ngFor="let coin of filteredCoins; let i = index">
+      <tr *ngFor="let moneda of monedas; let i = index">
         <td>
           {{i + 1}}
         </td>
         <td>
-          <img [src]="coin.image" alt="{{coin.name}}" style="width: 2rem">
-          <span class="ms-3">
-            {{ coin.name }}
-          </span>
-          <span class="text-muted text-uppercase ms-2">
-            {{ coin.symbol }}
-          </span>
+          <img [src]="moneda.imagenSrc" alt="{{moneda.nombre}}" style="width: 2rem">
+          <span class="ms-3">{{ moneda.nombre }}</span>
         </td>
-        <td>
-          ${{ coin.current_price.toLocaleString()}}
-        </td>
-        <td [ngClass]="coin.price_change_percentage_24h > 0 ? 'text-success': 'text-danger'">
-          {{coin.price_change_percentage_24h.toLocaleString()}}
-        </td>
-        <td>
-          {{ coin.total_volume.toLocaleString() }}
-        </td>
+        <td class="text-success">$ {{moneda.cotizacion}}</td>
       </tr>
-
     </tbody>
   </table>
 

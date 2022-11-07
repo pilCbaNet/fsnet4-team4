@@ -1,21 +1,11 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  HttpClient
-} from '@angular/common/http'
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
-interface Coin {
-  id: string;
-  name: string;
-  symbol: string;
-  image: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  total_volume: number;
+interface Moneda {
+  nombre: string;
+  imagenSrc: string;
+  cotizacion: number;
 }
-
 
 @Component({
   selector: 'app-cotizaciones',
@@ -33,34 +23,18 @@ export class CotizacionesComponent implements OnInit {
     element.style.cursor = 'text';
   }
 
-  coins: Coin[] = []
-  filteredCoins: Coin[] = []
+  monedas: Moneda[] = []
   titles: string [] = [
     '#',
     'Moneda',
     'Precio',
-    'Cambio de Precio',
-    'Volumen en 24h'
   ]
 
-  searchText = '';
-  searchCoin(){
-    this.filteredCoins = this.coins.filter((coin) =>
-    coin.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
-    coin.symbol.toLowerCase().includes(this.searchText.toLowerCase())
-  )}
-
-
-   constructor(private http: HttpClient) {}
-
-
-
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<Coin[]>('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false').subscribe((res) => {
-      console.log(res);
-      this.coins = res
-      this.filteredCoins = res;
+    this.http.get<Moneda[]>('http://localhost:3000/monedas').subscribe((res) => {
+      this.monedas = res
     }, err => {
       console.log(err)
     });
