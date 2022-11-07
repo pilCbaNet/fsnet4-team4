@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
       {
         nombre:['', [Validators.required]] ,
         dni:['', [Validators.required]],
+        nacimiento:['', [Validators.required]],
         password1:['',[Validators.required]],
         password2:['',[Validators.required]],
         email:['', [Validators.required, Validators.email]]   
@@ -39,6 +40,10 @@ export class RegisterComponent implements OnInit {
    return this.form.get("email");
   }
  
+  get Nacimiento()
+  {
+    return this.form.get("nacimiento");
+  }
   get Nombre()
   {
     return this.form.get("nombre");
@@ -55,8 +60,9 @@ export class RegisterComponent implements OnInit {
       let password2:string = this.form.get('password2')?.value;
       let dni:number = this.form.get('dni')?.value;
       let nombre:string = this.form.get('nombre')?.value;
+      let nacimiento: Date = this.form.get('nacimiento')?.value;
 
-      let register: Register = new Register(email,password1,password2,dni,nombre);
+      let register: Register = new Register(email,password1,password2,dni,nombre,nacimiento);
       this.myService.register(register).subscribe(respuesta=>{
       this.router.navigate(['ultimos-movimientos']);
       })
