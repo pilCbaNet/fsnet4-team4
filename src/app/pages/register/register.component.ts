@@ -1,45 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup , Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup , Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Register } from 'src/app/models/register';
 import { RegisterService } from 'src/app/services/register.service';
-
+import { ConfirmedValidator } from './confirmed.validator';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form: FormGroup;
+
+  form: FormGroup = new FormGroup({});
   constructor(private formBuilder: FormBuilder, private myService: RegisterService, private router:Router) {
-    this.form= this.formBuilder.group(
+    this.form = formBuilder.group(
       {
         nombre:['', [Validators.required]] ,
         dni:['', [Validators.required]],
         nacimiento:['', [Validators.required]],
+        email:['', [Validators.required, Validators.email]],
         password1:['',[Validators.required]],
-        password2:['',[Validators.required]],
-        email:['', [Validators.required, Validators.email]]   
-      })
+        confirm_password2:['',[Validators.required]],
+      },
+    {
+      validator:ConfirmedValidator('password1', 'confirm_password2')
+    })
+   }
+   SaveForm(){
+
+   }
+   get f ()
+   {
+    return this.form.controls;
    }
 
   ngOnInit(): void {
   }
 
-  get Password1()
-  {
-    return this.form.get("password1");
-  }
-  get Password2()
-  {
-    return this.form.get("password2");
-  }
- 
+  // get Password1()
+  // {
+  //   return this.form.get("password1");
+  // }
+  // get Password2()
+  // {
+  //   return this.form.get("password2");
+  // }
+
   get Mail()
   {
    return this.form.get("email");
   }
- 
+
   get Nacimiento()
   {
     return this.form.get("nacimiento");
@@ -66,7 +77,7 @@ export class RegisterComponent implements OnInit {
       this.myService.register(register).subscribe(respuesta=>{
       this.router.navigate(['ultimos-movimientos']);
       })
-      
+
     }
   }
 

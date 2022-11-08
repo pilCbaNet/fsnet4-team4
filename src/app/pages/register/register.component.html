@@ -1,57 +1,73 @@
-<form [formGroup]="form">
-    <div class="mb-3">
-      <label for="nombre" class="form-label">Nombre Completo</label>
-      <input  type="text"  id="nombre"  class="form-control" formControlName="nombre">
-      <div *ngIf="Nombre?.errors  && Nombre?.touched">
-        <p *ngIf="Nombre?.hasError('required')" class="text-danger">
-          El nombre es requerido.
-        </p>
+<form [formGroup]="form" (ngSubmit)="SaveForm()">
+  <div class="mb-3 form-group">
+    <label for="nombre" class="form-label">Nombre Completo</label>
+    <input type="text" id="nombre" class="form-control" formControlName="nombre">
+    <div *ngIf="Nombre?.errors  && Nombre?.touched">
+      <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+        El nombre es requerido.
+      </p>
     </div>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
+    <input type="date" id="nacimiento" class="form-control" formControlName="nacimiento"
+      aria-describedby="nacimientoHelp">
+    <div *ngIf="Nacimiento?.errors  && Nacimiento?.touched">
+      <p *ngIf="Nacimiento?.hasError('required')" class="text-danger">
+        La fecha de nacimiento es requerida.
+      </p>
     </div>
-    <div class="mb-3">
-      <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
-      <input type="date" id="nacimiento"   class="form-control" formControlName="nacimietno" aria-describedby="nacimientoHelp">
-      <div *ngIf="Nacimiento?.errors  && Nacimiento?.touched">
-          <p *ngIf="Nacimiento?.hasError('required')" class="text-danger">
-            La fecha de nacimiento es requerida.
-          </p>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="dni" class="form-label">DNI</label>
+    <input type="number" id="dni" class="form-control" formControlName="dni" aria-describedby="nameHelp">
+    <div *ngIf="Dni?.errors  && Dni?.touched">
+      <p *ngIf="Dni?.hasError('required')" class="text-danger">
+        El DNI es requerido.
+      </p>
+    </div>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" class="form-control" formControlName="email" aria-describedby="emailHelp">
+    <div *ngIf="Mail?.errors  && Mail?.touched">
+      <p *ngIf="Mail?.hasError('required')" class="text-danger">
+        El email es requerido.
+      </p>
+    </div>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="password" class="form-label">Nueva Contraseña</label>
+    <input type="password" id="password1" class="form-control" formControlName="password1">
+    <div *ngIf="f['password1'].touched && f['password1'].invalid" class="alert alert-danger">
+      <div *ngIf="f['password1'].errors && f['password1'].errors['required']">
+        La contraseña es requerida.
       </div>
     </div>
-    <div class="mb-3">
-        <label for="dni" class="form-label">DNI</label>
-        <input type="number" id="dni"   class="form-control" formControlName="dni" aria-describedby="nameHelp">
-        <div *ngIf="Dni?.errors  && Dni?.touched">
-            <p *ngIf="Dni?.hasError('required')" class="text-danger">
-              El dni es requerido.
-            </p>
-        </div>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="confirm_password2">Confirmar Contraseña</label>
+    <input type="password" id="confirm_password2" formControlName="confirm_password2" class="form-control">
+
+    <div *ngIf="f['confirm_password2'].touched && f['confirm_password2'].invalid" class="alert alert-danger">
+      <div *ngIf="f['confirm_password2'].errors && f['confirm_password2'].errors['required']">
+        La contraseña es requerida
       </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" id="email"  class="form-control" formControlName="email" aria-describedby="emailHelp">
-      <div *ngIf="Mail?.errors  && Mail?.touched">
-        <p *ngIf="Mail?.hasError('required')" class="text-danger">
-          El email es requerido.
-        </p>
-    </div>
-    </div>
-    <div class="mb-3">
-      <label for="contraseña" class="form-label">Crear Contraseña</label>
-      <input  type="password" id="password1"  class="form-control" formControlName="password1">
-      <div *ngIf="Password1?.errors  && Password1?.touched">
-        <p *ngIf="Password1?.hasError('required')" class="text-danger">
-          El password es requerido.
-        </p>
+      <div *ngIf="f['confirm_password2'].errors && f['confirm_password2'].errors['confirmedValidator']" class="">
+        La contraseña debe coincidir con la actual.
       </div>
-      <label for="repetir" class="form-label">Repetir Contraseña</label>
-      <input type="password" id="password2"  class="form-control" formControlName="password2">
-      <div *ngIf="Password2?.errors  && Password2?.touched">
+
+    </div>
+  </div>
+
+  <!-- <div *ngIf="Password2?.errors  && Password2?.touched">
         <p *ngIf="Password2?.hasError('required')" class="text-danger">
           Repita contraseña.
         </p>
-    </div>
-    </div>
-    <div class="text-center">
-        <button type="button" class="btn btn-primary btn-lg" (click)="register()" data-bs-dismiss="modal">Registrarse</button>
-    </div>
-  </form>
+    </div> -->
+
+  <div class="text-center">
+    <button [disabled]="this.form.invalid" type="submit" class="btn btn-primary btn-lg"
+      data-bs-dismiss="modal">Registrarse</button>
+  </div>
+</form>
