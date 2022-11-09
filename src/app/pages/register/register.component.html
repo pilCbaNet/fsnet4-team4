@@ -53,7 +53,7 @@
       <div *ngIf="f['confirm_password2'].errors && f['confirm_password2'].errors['required']">
         La contraseña es requerida
       </div>
-      <div *ngIf="f['confirm_password2'].errors && f['confirm_password2'].errors['confirmedValidator']" class="">
+      <div *ngIf="f['confirm_password2'].errors  f['confirm_password2'].errors['confirmedValidator']" class="">
         La contraseña debe coincidir con la actual.
       </div>
 
