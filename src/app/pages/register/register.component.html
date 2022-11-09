@@ -43,6 +43,9 @@
       <div *ngIf="f['password1'].errors && f['password1'].errors['required']">
         La contraseña es requerida.
       </div>
+      <div *ngIf="Password1?.errors?.minlength" class="text-danger">
+        La contraseña debe ser de 6 o más caracteres.
+      </div>
     </div>
   </div>
   <div class="mb-3 form-group">

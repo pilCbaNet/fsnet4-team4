@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
         dni:['', [Validators.required]],
         nacimiento:['', [Validators.required]],
         email:['', [Validators.required, Validators.email]],
-        password1:['',[Validators.required]],
+        password1:['',[Validators.required, Validators.minLength(6)]],
         confirm_password2:['',[Validators.required]],
       },
     {
@@ -37,14 +37,14 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // get Password1()
-  // {
-  //   return this.form.get("password1");
-  // }
-  // get Password2()
-  // {
-  //   return this.form.get("password2");
-  // }
+  get Password1()
+   {
+     return this.form.get("password1");
+  }
+  get Password2()
+   {
+     return this.form.get("password2");
+  }
 
   get Mail()
   {
@@ -68,12 +68,10 @@ export class RegisterComponent implements OnInit {
     if(this.form.valid){
       let email:string = this.form.get('email')?.value;
       let password1:string = this.form.get('password1')?.value;
-      let password2:string = this.form.get('password2')?.value;
       let dni:number = this.form.get('dni')?.value;
       let nombre:string = this.form.get('nombre')?.value;
       let nacimiento: Date = this.form.get('nacimiento')?.value;
-
-      let register: Register = new Register(email,password1,password2,dni,nombre,nacimiento);
+      let register: Register = new Register(email,password1,dni,nombre,nacimiento);
       this.myService.register(register).subscribe(respuesta=>{
       this.router.navigate(['ultimos-movimientos']);
       })

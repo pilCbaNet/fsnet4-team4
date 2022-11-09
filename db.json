@@ -56,14 +56,6 @@
       "nombre": "Martin Perez",
       "dni": 12652021,
       "password": "1234"
-    },
-    {
-      "email": "marcos_late@hotmail.com",
-      "password1": "1234",
-      "password2": "1234",
-      "dni": 2131,
-      "nombre": "jose",
-      "id": 3
     }
   ],
   "monedas": [
