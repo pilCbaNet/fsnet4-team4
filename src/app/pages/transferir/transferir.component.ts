@@ -42,12 +42,11 @@ export class TransferirComponent implements OnInit {
   retirar(){
     if(this.form.valid){
       let operacion:string = "Extraccion"
-      let moneda:string = this.seleccionado.name;
+      let moneda:string = this.seleccionado.nombre;
       let unidades:number = this.unidades;
       let importeArs:number = this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
-      let hashOperacion = this.generarHash();
-      let cuenta: Cuenta= new Cuenta(operacion,moneda,unidades,importeArs,fecha,hashOperacion)
+      let cuenta: Cuenta= new Cuenta(operacion,moneda,unidades,importeArs,fecha)
       this.myService.depositar(cuenta).subscribe();
     }
     else{

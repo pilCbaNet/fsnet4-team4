@@ -16,7 +16,6 @@
       <table class="table table-hover table-dark">
         <thead>
           <tr class="text-center">
-            <th>Hash</th>
             <th>Operación</th>
             <th>Moneda</th>
             <th>Unidades</th>
@@ -26,13 +25,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let element of movimientos; index as i" class="text-center">
-            <td>{{ element.hashOperacion }}</td>
             <td [ngClass]="element.operacion === 'Deposito' ? 'text-success' : 'text-danger'">
               {{ element.operacion === 'Deposito' ? '+ Depósito' : '- Extracción' }}
             </td>
             <td>{{ element.moneda }}</td>
             <td>{{ element.unidades }}</td>
-            <td class="col-1">$ {{ element.importeArs }}</td>
+            <td class="col-1">{{ element.importeArs | currency}}</td>
             <td>{{ element.fecha }}</td>
           </tr>
         </tbody>

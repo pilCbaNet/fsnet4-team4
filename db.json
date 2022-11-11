@@ -271,13 +271,20 @@
       "id": 13
     },
     {
-      "operacion": "Extraccion",
-      "moneda": "USD Coin",
+      "operacion": "Deposito",
+      "moneda": "Ethereum",
       "unidades": 1,
-      "importeArs": 1.002,
-      "fecha": "27/10/2022, 21:32:45",
-      "hashOperacion": 616925,
+      "importeArs": 463654.12,
+      "fecha": "11/11/2022, 12:40:00",
       "id": 14
+    },
+    {
+      "operacion": "Extraccion",
+      "moneda": "USDT",
+      "unidades": 1,
+      "importeArs": 296,
+      "fecha": "11/11/2022, 12:40:36",
+      "id": 15
     }
   ]
 }
