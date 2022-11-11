@@ -30,20 +30,23 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page"  routerLink="/cotizaciones">Cotizaciones</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLink="/ultimos-movimientos" >Ultimos Movimientos</a>
+        <li class="nav-item" >
+          <a class="nav-link" aria-current="page" routerLink="/ultimos-movimientos" *ngIf="autenticado" >Ultimos Movimientos</a>
         </li>
       </ul>
       <form class="d-flex">
 
-        <button (click)="mostrarLogin()" type="button" class="btn btn-light btn-lg login" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false"  >
+        <button (click)="mostrarLogin()" *ngIf="!autenticado" type="button" class="btn btn-light btn-lg login" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false"  >
           Ingresar
         </button>
 
 
 
-        <button (click)="mostrarRegistro()" type="button" class="btn btn-primary me-3 btn-lg signup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false">
+        <button (click)="mostrarRegistro()" *ngIf="!autenticado" type="button" class="btn btn-primary me-3 btn-lg signup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false">
           Registrarse
+        </button>
+        <button (click)="cerrarSesion()" *ngIf="autenticado" type="button" class="btn btn-primary me-3 btn-lg signup">
+          Cerrar sesion
         </button>
       </form>
       <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
@@ -54,10 +57,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="reiniciarVariableModal()" ></button>
             </div>
             <div *ngIf="login" class="modal-body">
-              <app-login></app-login>
+              <app-login (evento) = "getAutenticacion($event)"></app-login>
             </div>
             <div *ngIf="register" class="modal-body">
-              <app-register></app-register>
+              <app-register (evento) = "getAutenticacion($event)"></app-register>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="reiniciarVariableModal()">Cerrar</button>

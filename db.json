@@ -40,6 +40,66 @@
       "email": "asdasdasd@asdad.com",
       "password": "1231231231",
       "id": 4
+    },
+    {
+      "email": "olivia@hotmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "email": "olivia@hotmail.com",
+      "password": "12313213",
+      "id": 6
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "1231234",
+      "id": 7
+    },
+    {
+      "email": "23131@123131.com",
+      "password": "1231412",
+      "id": 8
+    },
+    {
+      "email": "12312@1231313124.com",
+      "password": "123214123",
+      "id": 9
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "123123",
+      "id": 10
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "123131",
+      "id": 11
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "12313213",
+      "id": 12
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "13123131",
+      "id": 13
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "12313123",
+      "id": 14
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "1231312",
+      "id": 15
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "12313",
+      "id": 16
     }
   ],
   "registro": [
@@ -56,6 +116,22 @@
       "nombre": "Martin Perez",
       "dni": 12652021,
       "password": "1234"
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password1": "123456",
+      "dni": 41264765,
+      "nombre": "adasdasdassda",
+      "nacimiento": "2004-10-07",
+      "id": 3
+    },
+    {
+      "email": "lisa@adasdsa.com",
+      "password": "123456",
+      "dni": 123124,
+      "nombre": "adasdasdassda",
+      "nacimiento": "2004-10-01",
+      "id": 4
     }
   ],
   "monedas": [
@@ -72,7 +148,7 @@
     {
       "nombre": "USDT",
       "imagenSrc": "https://criptoya.com/img/cryptoicons/usdt.svg",
-      "cotizacion": 296.00
+      "cotizacion": 296
     },
     {
       "nombre": "DAI",
@@ -82,7 +158,7 @@
     {
       "nombre": "USDC",
       "imagenSrc": "https://criptoya.com/img/cryptoicons/usdc.svg",
-      "cotizacion": 311.30
+      "cotizacion": 311.3
     }
   ],
   "cuenta": [

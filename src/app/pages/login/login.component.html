@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="login()">
   <div class="mb-3">
     <label formControlName="email" for="exampleInputEmail1" class="form-label"
       >Email</label
@@ -29,6 +29,6 @@
       </div>
   </div>
   <div class="text-center">
-    <button type="button" class="btn btn-primary btn-lg" (click)="login()" data-bs-dismiss="modal">Ingresar</button>
+    <button disabled="true" [disabled]="this.form.invalid"  type="submit" class="btn btn-primary btn-lg"  data-bs-dismiss="modal">Ingresar</button>
   </div>
 </form>

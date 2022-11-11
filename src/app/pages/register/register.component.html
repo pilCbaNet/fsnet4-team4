@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="SaveForm()">
+<form [formGroup]="form" (ngSubmit)="register()">
   <div class="mb-3 form-group">
     <label for="nombre" class="form-label">Nombre Completo</label>
     <input type="text" id="nombre" class="form-control" formControlName="nombre">
@@ -11,7 +11,7 @@
   <div class="mb-3 form-group">
     <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
     <input type="date" id="nacimiento" class="form-control" formControlName="nacimiento"
-      aria-describedby="nacimientoHelp">
+      aria-describedby="nacimientoHelp"  [min]="minDate" max="{{maxDate}}" onkeydown="return false">
     <div *ngIf="Nacimiento?.errors  && Nacimiento?.touched">
       <p *ngIf="Nacimiento?.hasError('required')" class="text-danger">
         La fecha de nacimiento es requerida.

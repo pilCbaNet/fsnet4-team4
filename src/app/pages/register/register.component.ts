@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup , Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Register } from 'src/app/models/register';
@@ -12,6 +12,10 @@ import { ConfirmedValidator } from './confirmed.validator';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
+  minDate = "1900-01-01";
+  maxDate = "";
+  autenticado: boolean= false;
+  @Output() evento = new EventEmitter<boolean>();
   constructor(private formBuilder: FormBuilder, private myService: RegisterService, private router:Router) {
     this.form = formBuilder.group(
       {
@@ -35,6 +39,7 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.fechaMaxima();
   }
 
   get Password1()
@@ -74,9 +79,27 @@ export class RegisterComponent implements OnInit {
       let register: Register = new Register(email,password1,dni,nombre,nacimiento);
       this.myService.register(register).subscribe(respuesta=>{
       this.router.navigate(['ultimos-movimientos']);
+      this.autenticado=true;
+      this.evento.emit(this.autenticado);
       })
 
     }
+  }
+
+  fechaMaxima(){
+    let today_date = new Date();
+    let today_year = today_date.getFullYear();
+    let today_month = today_date.getMonth();
+    let today_day = today_date.getDate();
+    let dia:string;
+    if (today_day <10){
+      dia = '0' + today_day.toString();
+    }
+    else{
+      dia = today_day.toString();
+    }
+    let año = today_year - 18
+    this.maxDate =   año.toString()+'-'+today_month.toString()+'-'+ dia
   }
 
 }
