@@ -10,6 +10,7 @@ import { DepositoComponent } from '../deposito/deposito.component';
 export class UltimosMovimientosComponent implements OnInit {
   hoy= new Date();
   movimientos:any;
+  bitcoin=0;
   constructor(private myService: CuentaService) 
   {
    
@@ -22,9 +23,11 @@ export class UltimosMovimientosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
+    
   }
 
   getAll(){
     this.myService.obtenerUltimosMovimientos().subscribe((data=>{this.movimientos = data}))
   }
+
 }

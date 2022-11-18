@@ -100,6 +100,26 @@
       "email": "marcosjmarin@hotmail.com",
       "password": "12313",
       "id": 16
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "24324242",
+      "id": 17
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "234234324",
+      "id": 18
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "21321321",
+      "id": 19
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "1231321321",
+      "id": 20
     }
   ],
   "registro": [
