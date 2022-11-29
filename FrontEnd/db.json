@@ -1,0 +1,310 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "login": [
+    {
+      "id": 1,
+      "email": "marcosjmarin@hotmail.com",
+      "nombre": "Marcos Marin",
+      "dni": 41264765,
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "email": "martin@hotmail.com",
+      "nombre": "Martin Perez",
+      "dni": 12652021,
+      "password": "1234"
+    },
+    {
+      "email": "olivia@hotmail.com",
+      "password": "12313",
+      "id": 3
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "1231231231",
+      "id": 4
+    },
+    {
+      "email": "olivia@hotmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "email": "olivia@hotmail.com",
+      "password": "12313213",
+      "id": 6
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "1231234",
+      "id": 7
+    },
+    {
+      "email": "23131@123131.com",
+      "password": "1231412",
+      "id": 8
+    },
+    {
+      "email": "12312@1231313124.com",
+      "password": "123214123",
+      "id": 9
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "123123",
+      "id": 10
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "123131",
+      "id": 11
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "12313213",
+      "id": 12
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "13123131",
+      "id": 13
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "12313123",
+      "id": 14
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "1231312",
+      "id": 15
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "12313",
+      "id": 16
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "24324242",
+      "id": 17
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password": "234234324",
+      "id": 18
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "21321321",
+      "id": 19
+    },
+    {
+      "email": "asdasdasd@asdad.com",
+      "password": "1231321321",
+      "id": 20
+    }
+  ],
+  "registro": [
+    {
+      "id": 1,
+      "email": "marcosjmarin@hotmail.com",
+      "nombre": "Marcos Marin",
+      "dni": 41264765,
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "email": "martin@hotmail.com",
+      "nombre": "Martin Perez",
+      "dni": 12652021,
+      "password": "1234"
+    },
+    {
+      "email": "marcosjmarin@hotmail.com",
+      "password1": "123456",
+      "dni": 41264765,
+      "nombre": "adasdasdassda",
+      "nacimiento": "2004-10-07",
+      "id": 3
+    },
+    {
+      "email": "lisa@adasdsa.com",
+      "password": "123456",
+      "dni": 123124,
+      "nombre": "adasdasdassda",
+      "nacimiento": "2004-10-01",
+      "id": 4
+    }
+  ],
+  "monedas": [
+    {
+      "nombre": "Bitcoin",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/btc.svg",
+      "cotizacion": 6086056.48
+    },
+    {
+      "nombre": "Ethereum",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/eth.svg",
+      "cotizacion": 463654.12
+    },
+    {
+      "nombre": "USDT",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/usdt.svg",
+      "cotizacion": 296
+    },
+    {
+      "nombre": "DAI",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/dai.svg",
+      "cotizacion": 312.96
+    },
+    {
+      "nombre": "USDC",
+      "imagenSrc": "https://criptoya.com/img/cryptoicons/usdc.svg",
+      "cotizacion": 311.3
+    }
+  ],
+  "cuenta": [
+    {
+      "id": 1,
+      "operacion": "Deposito",
+      "moneda": "USDT",
+      "unidades": 333,
+      "importeArs": 130000,
+      "fecha": "11/09/2021 11:32",
+      "hashOperacion": 3101512
+    },
+    {
+      "id": 2,
+      "operacion": "Deposito",
+      "moneda": "Ethereum",
+      "unidades": 0.0001,
+      "importeArs": 30000,
+      "fecha": "15/02/2022 11:32",
+      "hashOperacion": 1001512
+    },
+    {
+      "id": 3,
+      "operacion": "Deposito",
+      "moneda": "Bitcoin",
+      "unidades": 0.0024,
+      "importeArs": 35700,
+      "fecha": "15/02/2022 05:39",
+      "hashOperacion": 9210513
+    },
+    {
+      "id": 4,
+      "operacion": "Extraccion",
+      "moneda": "Ethereum",
+      "unidades": 0.0144,
+      "importeArs": 70100,
+      "fecha": "25/02/2022 12:00",
+      "hashOperacion": 514214
+    },
+    {
+      "id": 5,
+      "operacion": "Deposito",
+      "moneda": "USDT",
+      "unidades": 0.0001,
+      "importeArs": 4,
+      "fecha": "13/07/2022 13:31",
+      "hashOperacion": 5150102
+    },
+    {
+      "id": 6,
+      "operacion": "Deposito",
+      "moneda": "Ethereum",
+      "unidades": 1.301,
+      "importeArs": 223300,
+      "fecha": "15/05/2022 18:21",
+      "hashOperacion": 3169139
+    },
+    {
+      "operacion": "Deposito",
+      "moneda": "Ethereum",
+      "unidades": 2,
+      "importeArs": 3027.24,
+      "fecha": "27/10/2022, 20:16:34",
+      "hashOperacion": 402810,
+      "id": 8
+    },
+    {
+      "operacion": "Deposito",
+      "moneda": "Tether",
+      "unidades": 2,
+      "importeArs": 2,
+      "fecha": "27/10/2022, 20:53:03",
+      "hashOperacion": 87557,
+      "id": 9
+    },
+    {
+      "operacion": "Extraccion",
+      "moneda": "Tether",
+      "unidades": 6,
+      "importeArs": 5.999286,
+      "fecha": "27/10/2022, 21:03:26",
+      "hashOperacion": 799783,
+      "id": 10
+    },
+    {
+      "operacion": "Extraccion",
+      "moneda": "BNB",
+      "unidades": 2,
+      "importeArs": 574.82,
+      "fecha": "27/10/2022, 21:29:19",
+      "hashOperacion": 700719,
+      "id": 11
+    },
+    {
+      "operacion": "Extraccion",
+      "moneda": "BNB",
+      "unidades": 2,
+      "importeArs": 574.82,
+      "fecha": "27/10/2022, 21:30:21",
+      "hashOperacion": 492448,
+      "id": 12
+    },
+    {
+      "operacion": "Extraccion",
+      "moneda": "BNB",
+      "unidades": 2,
+      "importeArs": 574.82,
+      "fecha": "27/10/2022, 21:30:53",
+      "hashOperacion": 384868,
+      "id": 13
+    },
+    {
+      "operacion": "Deposito",
+      "moneda": "Ethereum",
+      "unidades": 1,
+      "importeArs": 463654.12,
+      "fecha": "11/11/2022, 12:40:00",
+      "id": 14
+    },
+    {
+      "operacion": "Extraccion",
+      "moneda": "USDT",
+      "unidades": 1,
+      "importeArs": 296,
+      "fecha": "11/11/2022, 12:40:36",
+      "id": 15
+    }
+  ]
+}
