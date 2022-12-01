@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WGfSP6W2sgl/uoGkM5WkaTYGRb4/IaXD4AvN/8YdOAm1XgFfLXIhjCj7NsCNF4IRXHa6WNGdBmlQgRv4lbTUxA==",
+  "dgSpecHash": "qO2li7MUdZOGqfKjiic3nVaE4/652nxiVwZKn24pOX9d2lZN/b8JNghJEoCOLMujDCT+y1gywoJvciAosEVxVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marcos\\Desktop\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPIL.csproj",
+  "projectFilePath": "C:\\Users\\Marcos\\Documents\\GitHub\\fsnet4-team4\\FrontEnd\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPIL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcos\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Marcos\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
