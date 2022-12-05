@@ -1,0 +1,15 @@
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\bin\Debug\net6.0\Negocios.deps.json
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\bin\Debug\net6.0\Negocios.dll
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\bin\Debug\net6.0\Negocios.pdb
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\bin\Debug\net6.0\Entidades.dll
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\bin\Debug\net6.0\Entidades.pdb
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.csproj.AssemblyReference.cache
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.AssemblyInfoInputs.cache
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.AssemblyInfo.cs
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.csproj.CopyComplete
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.dll
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\refint\Negocios.dll
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\Negocios.pdb
+C:\Users\Marcos\Documents\GitHub\fsnet4-team4\FrontEnd\BackEnd\CryptoPIL\Negocios\obj\Debug\net6.0\ref\Negocios.dll

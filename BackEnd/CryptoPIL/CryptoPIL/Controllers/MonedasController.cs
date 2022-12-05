@@ -1,7 +1,9 @@
-﻿using CryptoPIL.Models;
+﻿
+using Entidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Negocios;
 
 namespace CryptoPIL.Controllers
 {
@@ -14,38 +16,19 @@ namespace CryptoPIL.Controllers
         {
             using (var db = new CryptoPILContext())
             {
-                return db.Monedas.ToList();
+                return new MonedasBC().ObtenerMonedas(db);
             }
+            
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetTarjeta(int id)
+        public Moneda GetMoneda(int id)
         {
-            try
-            {
+            
                 using (var db = new CryptoPILContext())
                 {
-                    var listMonedas = await db.Monedas.ToListAsync();
-                    var este = new Moneda();
-                    foreach (var item in listMonedas)
-                    {
-                        if (item.IdMoneda == id)
-                        {
-                            este = item;
-                        }
-                    }
-                    return Ok(este);
+                    return new MonedasBC().ObtenerMoneda(db, id);
                 }
-
-
-            }
-            catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
-            }
-
-
         }
 
 

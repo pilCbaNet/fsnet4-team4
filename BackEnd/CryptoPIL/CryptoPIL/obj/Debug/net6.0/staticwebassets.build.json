@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "Y5flMb3iWiK0Lql+O4/FT/Or8f4wgQppUnhAk1Om6bc=",
-  "Source": "CryptoPIL",
-  "BasePath": "_content/CryptoPIL",
+  "Hash": "Q0jbkz8zJoLLYQJ3x35BcyxxpjMrwiZJULnGteFMOIY=",
+  "Source": "CryptoPILWebApi",
+  "BasePath": "_content/CryptoPILWebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
