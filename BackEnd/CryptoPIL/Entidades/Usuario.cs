@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public partial class Usuario
     {
@@ -14,8 +11,8 @@ namespace Entidades
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaAlta { get; set; }
         public DateTime? FechaBaja { get; set; }
-        public int IdCuenta { get; set; }
+        public int? IdCuenta { get; set; }
 
-        public virtual Cuenta IdCuentaNavigation { get; set; } = null!;
+        public virtual Cuenta? IdCuentaNavigation { get; set; } = null!;
     }
 }
