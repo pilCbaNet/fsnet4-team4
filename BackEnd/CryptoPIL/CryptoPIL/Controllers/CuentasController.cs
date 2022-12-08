@@ -9,7 +9,7 @@ namespace CryptoPILWebApi.Controllers
     [ApiController]
     public class CuentasController : ControllerBase
     {
-        // GET: api/<MonedasDeCuentaController>
+        // GET: api/
         [HttpGet]
         public List<Cuenta> Get()
         {
@@ -20,10 +20,18 @@ namespace CryptoPILWebApi.Controllers
         }
 
         // GET api/<CuentasController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{IdCuenta}")]
+        public ActionResult<Cuenta> GetById(int IdCuenta)
         {
-            return "value";
+            using (var db = new CryptoPILContext())
+            {
+                var existeCuenta = db.Cuentas.FirstOrDefault(x => x.IdCuenta == IdCuenta);
+                if (existeCuenta == null)
+                {
+                    return NotFound();
+                }
+                return Ok(existeCuenta);
+            }
         }
 
         // POST api/<CuentasController>
