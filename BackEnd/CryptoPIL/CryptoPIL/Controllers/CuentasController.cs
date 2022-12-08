@@ -36,7 +36,7 @@ namespace CryptoPILWebApi.Controllers
 
         // POST api/<CuentasController>
         [HttpPost]
-        public ActionResult  Post(Cuenta cuenta)
+        public ActionResult Post(Cuenta cuenta)
         {
             using (var db = new CryptoPILContext())
             {
@@ -52,9 +52,33 @@ namespace CryptoPILWebApi.Controllers
         }
 
         // PUT api/<CuentasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{IdCuenta}")]
+        public string Put(int IdCuenta, [FromBody] Cuenta cuentaActualizada)
         {
+            try
+            {
+                using (var db = new CryptoPILContext())
+                {
+                    var CuentaModificar = db.Cuentas.FirstOrDefault(x => x.IdCuenta == IdCuenta);
+                    if (CuentaModificar != null)
+                    {
+                        CuentaModificar.Cbu = cuentaActualizada.Cbu;
+                        CuentaModificar.SaldoTotal = cuentaActualizada.SaldoTotal;
+
+
+
+                        db.SaveChanges();
+                        return "La  cuenta fue  modificada con éxito";
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return "Error al modificar la  cuenta";
         }
 
         // DELETE api/<CuentasController>/5
