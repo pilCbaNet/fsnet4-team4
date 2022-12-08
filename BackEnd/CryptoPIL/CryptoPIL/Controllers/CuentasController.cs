@@ -36,8 +36,19 @@ namespace CryptoPILWebApi.Controllers
 
         // POST api/<CuentasController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult  Post(Cuenta cuenta)
         {
+            using (var db = new CryptoPILContext())
+            {
+                var existeCuenta = db.Cuentas.FirstOrDefault(x => x.IdCuenta == cuenta.IdCuenta);
+                if (existeCuenta != null)
+                {
+                    return BadRequest("La cuenta ya existe");
+                }
+                db.Add(cuenta);
+                db.SaveChanges();
+                return Ok("La  cuenta fue  creada con éxito");
+            }
         }
 
         // PUT api/<CuentasController>/5

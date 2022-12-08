@@ -47,7 +47,7 @@ namespace CryptoPILWebApi.Controllers
 
                 db.Add(monedasDeCuenta);
                 db.SaveChanges();
-                return Ok("Moneda de cuenta creada con exíto");
+                return Ok("Moneda de cuenta creada con éxito");
             }
         }
 
