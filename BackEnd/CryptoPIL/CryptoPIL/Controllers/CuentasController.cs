@@ -82,9 +82,23 @@ namespace CryptoPILWebApi.Controllers
         }
 
         // DELETE api/<CuentasController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{IdCuenta}")]
+        public ActionResult Delete(int IdCuenta)
         {
+            using (var db = new CryptoPILContext())
+            {
+                var existeCuenta = db.Cuentas.FirstOrDefault(x => x.IdCuenta == IdCuenta);
+                if (existeCuenta == null)
+                {
+                    return NotFound();
+                }
+
+                db.Remove(new Cuenta() { IdCuenta= IdCuenta });
+                db.SaveChanges();
+                return Ok();
+
+            }
+
         }
     }
 }
