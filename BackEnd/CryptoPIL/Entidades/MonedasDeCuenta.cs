@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entidades
 {
-    public partial class MonedasDeCuenta
+    public  class MonedasDeCuenta
     {
+        
         public int IdMonedasDeCuenta { get; set; }
         public int IdCuenta { get; set; }
         public int IdMoneda { get; set; }
