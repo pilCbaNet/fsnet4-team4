@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj": {}
+    "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj": {
+    "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj",
         "projectName": "CryptoPILWebApi",
-        "projectPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj",
-        "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\obj\\",
+        "projectPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\CryptoPILWebApi.csproj",
+        "packagesPath": "C:\\Users\\localadmin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\CryptoPIL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\localadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -33,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj"
+              "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj"
               },
-              "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj": {
-                "projectPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj"
+              "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj": {
+                "projectPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj"
               }
             }
           }
@@ -90,22 +85,17 @@
         }
       }
     },
-    "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\localadmin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\localadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -162,22 +152,17 @@
         }
       }
     },
-    "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj": {
+    "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj",
+        "projectUniqueName": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj",
         "projectName": "Negocios",
-        "projectPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj",
-        "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\obj\\",
+        "projectPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\Negocios.csproj",
+        "packagesPath": "C:\\Users\\localadmin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Negocios\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\localadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -191,8 +176,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\Matias\\Desktop\\carpetas\\proyecto_PIL_ORIGINAL\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj"
+              "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\localadmin\\source\\repos\\fsnet4-team4\\BackEnd\\CryptoPIL\\Entidades\\Entidades.csproj"
               }
             }
           }
