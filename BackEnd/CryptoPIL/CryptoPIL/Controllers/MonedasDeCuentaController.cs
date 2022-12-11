@@ -1,5 +1,7 @@
 ﻿using Entidades;
 using Microsoft.AspNetCore.Mvc;
+using Entidades;
+using Negocios;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,17 +22,13 @@ namespace CryptoPILWebApi.Controllers
         }
 
         [HttpGet("{IdCuenta}")]
-        public ActionResult<MonedasDeCuenta> GetById(int IdCuenta)
+        public List<MonedasDeCuenta> GetById(int IdCuenta)
         {
             using (var db = new CryptoPILContext())
             {
-                
-                var existeMonedaDeCuenta = db.MonedasDeCuenta.FirstOrDefault(x => x.IdCuenta == IdCuenta);
-                if (existeMonedaDeCuenta == null)
-                {
-                    return NotFound();
-                }
-                return Ok(existeMonedaDeCuenta);
+
+                List<MonedasDeCuenta> existeMonedaDeCuenta = new MonedasDeCuentaBC().ObtenerMonedasDeCuenta(db,IdCuenta);
+                return existeMonedaDeCuenta;
             }
         }
 

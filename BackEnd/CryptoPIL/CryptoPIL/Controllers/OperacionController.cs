@@ -22,12 +22,12 @@ namespace CryptoPILWebApi.Controllers
         }
 
        
-        [HttpGet("{id}")]
-        public Operacion? Get(int id)
+        [HttpGet("{idCuenta}")]
+        public Operacion? Get(int idCuenta)
         {
             using (var db = new CryptoPILContext())
             {
-                return new OperacionesBC().ObtenerOperacion(db, id);
+                return new OperacionesBC().ObtenerOperacion(db, idCuenta);
             }
 
         }

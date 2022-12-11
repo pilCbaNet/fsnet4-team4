@@ -37,10 +37,12 @@ export class TransferirComponent implements OnInit {
   }
 
   ShowSelected(){
-    this.precio = this.seleccionado.cotizacion;
+    this.precio = this.seleccionado.precioXunidad;
+    console.log(this.precio);
   }
 
   getAll(){
+    
     this.service.obtenerMonedas().subscribe((data:any)=>{this.monedas = data})
   }
 

@@ -18,6 +18,12 @@ export class CuentaService {
   {
    return this.http.get('https://localhost:7245/api/MonedasDeCuenta/'+id);
   }
+
+  obtenerMovimientos(id:any):Observable<any>
+  {
+   return this.http.get('https://localhost:7245/api/Operaciones/'+id);
+  }
+
   depositar(cuenta:Cuentas):Observable<any>{
 
     return this.http.post('http://localhost:3000/cuenta',cuenta);

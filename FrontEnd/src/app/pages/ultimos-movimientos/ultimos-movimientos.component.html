@@ -2,32 +2,39 @@
   <div class="row fila justify-content-evenly">
     <h2 class="d-inline col-12 col-lg-6 text-center title">BILLETERA </h2>
   </div>
-  <div class="row fila justify-content-evenly">
-    <h2 class="d-inline col-12 col-lg-6 text-center title">Saldo Total: {{cuenta.saldoTotal | currency}}</h2>
+  <div *ngIf="billetera?.length === 0">
+    <h1 class="text-center mt-4">No hay monedas en su cuenta</h1>
   </div>
-  <div class="row fila justify-content-evenly">
-    <h2 class="d-inline col-12 col-lg-6 text-center title">CBU: {{cuenta.cbu}}</h2>
+
+  <div *ngIf="billetera?.length !== 0">
+    <div class="row fila justify-content-evenly">
+      <h2 class="d-inline col-12 col-lg-6 text-center title">Saldo Total: {{cuenta.saldoTotal | currency}}</h2>
+    </div>
+    <div class="row fila justify-content-evenly">
+      <h2 class="d-inline col-12 col-lg-6 text-center title">CBU: {{cuenta.cbu}}</h2>
+    </div>
+    <div class="overflow">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr class="text-center">
+            <th>Moneda</th>
+            <th>Unidades</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center" *ngFor="let element of billetera; let i = index">
+            
+            <td>{{element.nombre}} </td>
+            <td>{{element.unidades}}</td>
+            <td class="col-1">{{element.saldoMoneda | currency}}</td>
+            
+          </tr>  
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class="overflow">
-    <table class="table table-hover table-dark">
-      <thead>
-        <tr class="text-center">
-          <th>Moneda</th>
-          <th>Unidades</th>
-          <th>Importe</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="text-center" *ngFor="let element of billetera; let i = index">
-          
-          <td>{{element.nombre}} </td>
-          <td>{{element.unidades}}</td>
-          <td class="col-1">{{element.saldoMoneda | currency}}</td>
-          
-        </tr>  
-      </tbody>
-    </table>
-  </div>
+ 
 
 
 </section>
@@ -62,12 +69,12 @@
         <tbody>
           <tr *ngFor="let element of movimientos; index as i" class="text-center">
             <td [ngClass]="element.operacion === 'Deposito' ? 'text-success' : 'text-danger'">
-              {{ element.operacion === 'Deposito' ? '+ Depósito' : '- Extracción' }}
+              {{ element.operacion}}
             </td>
-            <td>{{ element.moneda }}</td>
+            <td>{{ element.nombre }}</td>
             <td>{{ element.unidades }}</td>
-            <td class="col-1">{{ element.importeArs | currency}}</td>
-            <td>{{ element.fecha }}</td>
+            <td class="col-1">{{ element.monto | currency}}</td>
+            <td>{{ element.fechaOperacion}}</td>
           </tr>
         </tbody>
       </table>

@@ -15,7 +15,7 @@ namespace Negocios
             var este = new Operacion();
             foreach (var item in listOperacion)
             {
-                if (item.IdOperacion == id)
+                if (item.IdCuenta == id)
                 {
                     este = item;
                 }

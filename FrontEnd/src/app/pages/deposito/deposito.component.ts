@@ -30,7 +30,7 @@ export class DepositoComponent implements OnInit {
   }
 
   ShowSelected(){
-    this.precio = this.seleccionado.cotizacion;
+    this.precio = this.seleccionado.precioXunidad;
   }
 
   getAll(){
