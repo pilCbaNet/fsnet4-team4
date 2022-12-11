@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Cuenta } from 'src/app/models/cuenta';
+import { Cuentas } from 'src/app/models/cuentas';
 import { CuentaService } from 'src/app/services/cuenta.service';
 
 @Component({
@@ -45,7 +45,7 @@ export class DepositoComponent implements OnInit {
       let importeArs:number = this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
       
-      let cuenta: Cuenta= new Cuenta(operacion,moneda,unidades,importeArs,fecha)
+      let cuenta: Cuentas= new Cuentas(operacion,moneda,unidades,importeArs,fecha)
       this.myService.depositar(cuenta).subscribe();
       
     }

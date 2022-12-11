@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 
 interface Moneda {
   nombre: string;
-  imagenSrc: string;
-  cotizacion: number;
+  precioXunidad: number;
 }
 
 @Component({
@@ -30,14 +30,14 @@ export class CotizacionesComponent implements OnInit {
     'Precio',
   ]
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private myService:CotizacionesService) {}
 
   ngOnInit(): void {
-    this.http.get<Moneda[]>('http://localhost:3000/monedas').subscribe((res) => {
-      this.monedas = res
-    }, err => {
-      console.log(err)
-    });
+    this.getAll();
+  }
+
+  getAll(){
+    this.myService.obtenerMonedas().subscribe((data=>{this.monedas = data}))
   }
 
 }

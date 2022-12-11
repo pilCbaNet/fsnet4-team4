@@ -21,10 +21,12 @@
           {{i + 1}}
         </td>
         <td>
-          <img [src]="moneda.imagenSrc" alt="{{moneda.nombre}}" style="width: 2rem">
           <span class="ms-3">{{ moneda.nombre }}</span>
         </td>
-        <td class="text-success">$ {{moneda.cotizacion}}</td>
+        <td>
+          <span class="ms-3">{{ moneda.precioXunidad | currency}}</span>
+        </td>
+        
       </tr>
     </tbody>
   </table>

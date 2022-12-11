@@ -2,7 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
+import { ComunicacionService } from 'src/app/services/comunicacion.service';
 import { LoginService } from 'src/app/services/login.service';
+import { usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,9 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   autenticado: boolean= false;
+  [x: string]: any;
   @Output() evento = new EventEmitter<boolean>();
-  constructor(private formBuilder: FormBuilder, private myService:LoginService,private router:Router) {
+  constructor(private formBuilder: FormBuilder, private myService:LoginService,private router:Router, private comunicacion:ComunicacionService) {
     this.form = this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -35,12 +38,30 @@ export class LoginComponent implements OnInit {
       let email:string = this.form.get('mail')?.value;
       let password:string = this.form.get('password')?.value;
       let login: Login = new Login(email,password)
-      this.myService.login(login).subscribe(respuesta=>{
-      this.router.navigate(['ultimos-movimientos']);
-      this.autenticado = true;
-      this.evento.emit(this.autenticado);
-      this.form.reset()
-      })
+      console.log(login);
+      
+      this.myService.login(login).subscribe({
+        next:(data) => {
+          console.log(data);
+          if (data!= null){
+            this.usuario=data;
+            this.form.reset();
+            this.autenticado = true;
+            this.evento.emit(this.autenticado);
+            this.router.navigate(['ultimos-movimientos']);
+            let user = new usuario(data.idUsuario, data.nombre,data.apellido,data.email,data.password,data.dni,data.fechaNacimiento,data.fechaAlta,data.idCuenta)
+            console.log(user)
+            this.comunicacion.setUser(user);
+          }
+          else{
+            this.autenticado=false;
+            this.form.reset();
+            alert("Verifique sus credenciales");
+            this.evento.emit(this.autenticado);
+          }
+        }
+      }
+       )
     }
     
   }

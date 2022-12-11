@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cuenta } from '../models/cuenta';
+import { Cuentas } from '../models/cuentas';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,16 @@ import { Cuenta } from '../models/cuenta';
 export class CuentaService {
 
   constructor(private http:HttpClient) { }
-  obtenerUltimosMovimientos():Observable<any>
+
+  obtenerCuenta(id: any):Observable<any>
   {
-    return this.http.get('http://localhost:3000/cuenta');
+    return this.http.get('https://localhost:7245/api/Cuentas/'+id);
   }
-  depositar(cuenta:Cuenta):Observable<any>{
+  obtenerBilletera(id:any):Observable<any>
+  {
+   return this.http.get('https://localhost:7245/api/MonedasDeCuenta/'+id);
+  }
+  depositar(cuenta:Cuentas):Observable<any>{
 
     return this.http.post('http://localhost:3000/cuenta',cuenta);
 

@@ -1,10 +1,19 @@
 <form [formGroup]="form" (ngSubmit)="register()">
   <div class="mb-3 form-group">
-    <label for="nombre" class="form-label">Nombre Completo</label>
+    <label for="nombre" class="form-label">Nombre</label>
     <input type="text" id="nombre" class="form-control" formControlName="nombre">
     <div *ngIf="Nombre?.errors  && Nombre?.touched">
       <p *ngIf="Nombre?.hasError('required')" class="text-danger">
         El nombre es requerido.
+      </p>
+    </div>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="apellido" class="form-label">Apellido</label>
+    <input type="text" id="apellido" class="form-control" formControlName="apellido">
+    <div *ngIf="Apellido?.errors  && Apellido?.touched">
+      <p *ngIf="Apellido?.hasError('required')" class="text-danger">
+        El apellido es requerido.
       </p>
     </div>
   </div>

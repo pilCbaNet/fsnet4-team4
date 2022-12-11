@@ -36,10 +36,13 @@ export class NavbarComponent implements OnInit {
   getAutenticacion(e:any){
     console.log(e);
     this.autenticado = e;
+    this.reiniciarVariableModal();
   }
 
   cerrarSesion(){
     this.autenticado=false;
+    this.register = false;
+    this.login = false;
     this.router.navigate(['inicio']);
   }
 }

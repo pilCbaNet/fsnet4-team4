@@ -1,16 +1,21 @@
 export class Register {
   nombre: string;
-  nacimiento: Date;
+  apellido: string;
   dni: number;
-  password: string;
   email: string;
+  password: string;
+  fechaNacimiento: Date;
+  
+  
+  
 
-  constructor(email: string, password1: string,dni: number,nombre: string,nacimiento: Date) {
+  constructor(nombre: string,apellido:string,email: string, password1: string,dni: number,fechanacimiento: Date) {
+    this.nombre = nombre; 
+    this.apellido = apellido;
+    this.dni = dni;
     this.email = email;
     this.password = password1;
-    this.dni = dni;
-    this.nombre = nombre; 
-    this.nacimiento = nacimiento;
+    this.fechaNacimiento = fechanacimiento;
 
   }
 }

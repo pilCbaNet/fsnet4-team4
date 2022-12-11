@@ -19,12 +19,13 @@ namespace CryptoPILWebApi.Controllers
             }
         }
 
-        [HttpGet("{IdMonedasDeCuenta}")]
-        public ActionResult<MonedasDeCuenta> GetById(int IdMonedasDeCuenta)
+        [HttpGet("{IdCuenta}")]
+        public ActionResult<MonedasDeCuenta> GetById(int IdCuenta)
         {
             using (var db = new CryptoPILContext())
             {
-                var existeMonedaDeCuenta = db.MonedasDeCuenta.FirstOrDefault(x => x.IdMonedasDeCuenta == IdMonedasDeCuenta);
+                
+                var existeMonedaDeCuenta = db.MonedasDeCuenta.FirstOrDefault(x => x.IdCuenta == IdCuenta);
                 if (existeMonedaDeCuenta == null)
                 {
                     return NotFound();

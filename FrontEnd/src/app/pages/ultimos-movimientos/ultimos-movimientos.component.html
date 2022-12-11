@@ -2,6 +2,12 @@
   <div class="row fila justify-content-evenly">
     <h2 class="d-inline col-12 col-lg-6 text-center title">BILLETERA </h2>
   </div>
+  <div class="row fila justify-content-evenly">
+    <h2 class="d-inline col-12 col-lg-6 text-center title">Saldo Total: {{cuenta.saldoTotal | currency}}</h2>
+  </div>
+  <div class="row fila justify-content-evenly">
+    <h2 class="d-inline col-12 col-lg-6 text-center title">CBU: {{cuenta.cbu}}</h2>
+  </div>
   <div class="overflow">
     <table class="table table-hover table-dark">
       <thead>
@@ -12,28 +18,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="text-center">
+        <tr class="text-center" *ngFor="let element of billetera; let i = index">
           
-          <td>Bitcoin</td>
-          <td>1.5</td>
-          <td class="col-1">$120.000</td>
+          <td>{{element.nombre}} </td>
+          <td>{{element.unidades}}</td>
+          <td class="col-1">{{element.saldoMoneda | currency}}</td>
           
-        </tr>
-        <tr class="text-center">
-          
-          <td>USDT</td>
-          <td>1.5</td>
-          <td class="col-1">$120.000</td>
-          
-        </tr>
-        <tr class="text-center">
-          
-          <td>Ethereum</td>
-          <td>1.5</td>
-          <td class="col-1">$120.000</td>
-          
-        </tr>
-        
+        </tr>  
       </tbody>
     </table>
   </div>

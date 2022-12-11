@@ -9,6 +9,6 @@ import { Observable } from 'rxjs';
 export class CotizacionesService {
   constructor(private http: HttpClient) { }
   obtenerMonedas():Observable<any>{
-    return this.http.get("http://localhost:3000/monedas");
+    return this.http.get("https://localhost:7245/api/monedas");
   }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Entidades;
 using Negocios;
+using Microsoft.AspNetCore.Cors;
 
 namespace CryptoPIL.Controllers
 {
@@ -8,9 +9,9 @@ namespace CryptoPIL.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        [HttpGet]
+        [HttpPost]
         [Route("Login")]
-        public Usuario GetLogin([FromBody] Login oLogin)
+        public Usuario PostLogin([FromBody] Login oLogin)
         {
             using (var db = new CryptoPILContext())
             {
@@ -44,12 +45,13 @@ namespace CryptoPIL.Controllers
         }
 
         // POST api/<UsuariosController>
+        [EnableCors("AllowAllOrigins")]
         [HttpPost]
-        public string Post([FromBody] Usuario oUsuario)
+        public Usuario? Post([FromBody] Usuario oUsuario)
         {
             if (!ModelState.IsValid)
             {
-                return "Error. No se ha podido crear";
+                return null;
             }
 
             using (var db = new CryptoPILContext())
@@ -58,7 +60,7 @@ namespace CryptoPIL.Controllers
                 db.SaveChanges();
             }
 
-            return "Usuario creado con exito";
+            return oUsuario;
         }
 
         // PUT api/<UsuariosController>/5

@@ -23,5 +23,10 @@ namespace Negocios
             }
             return este;
         }
+
+        public Usuario? Login(CryptoPILContext db, Login oLogin)
+        {
+            return (Usuario?) db.Usuarios.FirstOrDefault(a => a.Email == oLogin.Email && a.Password == oLogin.Password);
+        }
     }
 }

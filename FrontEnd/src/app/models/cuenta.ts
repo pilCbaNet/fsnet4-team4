@@ -1,19 +1,10 @@
-export class Cuenta
-{
-    operacion:string;
-    moneda:string;
-    unidades:number;
-    importeArs:number;
-    fecha:string;
-    
+export class Cuenta {
 
-    constructor( operacion:string, moneda:string,unidades:number,importeArs:number,fecha:string ){
-        this.operacion = operacion;
-        this.moneda = moneda;
-        this.unidades=unidades;
-        this.importeArs = importeArs
-        this.fecha = fecha;
-        
-    }
+cbu:number;
+saldoTotal:number;
+
+constructor(cbu:number,saldoTotal:number){
+    this.cbu=cbu;
+    this.saldoTotal = saldoTotal;
 }
-
+}

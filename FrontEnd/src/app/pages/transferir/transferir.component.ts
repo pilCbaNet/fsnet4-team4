@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Cuenta } from 'src/app/models/cuenta';
+import { Cuentas } from 'src/app/models/cuentas';
 import { CuentaService } from 'src/app/services/cuenta.service';
 import { Router } from '@angular/router';
+
+interface Moneda {
+  nombre: string;
+  precioXunidad: number;
+}
 
 @Component({
   selector: 'app-transferir',
@@ -21,7 +26,7 @@ export class TransferirComponent implements OnInit {
     });
   }
   
-  monedas:any;
+  monedas: Moneda[] = []
   unidades:number = 0;
   seleccionado: any;
   precio: number = 0;
@@ -46,7 +51,7 @@ export class TransferirComponent implements OnInit {
       let unidades:number = this.unidades;
       let importeArs:number = this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
-      let cuenta: Cuenta= new Cuenta(operacion,moneda,unidades,importeArs,fecha)
+      let cuenta: Cuentas= new Cuentas(operacion,moneda,unidades,importeArs,fecha)
       this.myService.depositar(cuenta).subscribe();
     }
     else{

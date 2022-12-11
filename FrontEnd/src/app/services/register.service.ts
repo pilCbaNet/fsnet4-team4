@@ -13,7 +13,7 @@ export class RegisterService {
    }
   register(register:Register):Observable<any>{
 
-    return this.http.post('http://localhost:3000/registro',register);
+    return this.http.post<any>('https://localhost:7245/api/Usuarios/',register);
 
   }
 }
