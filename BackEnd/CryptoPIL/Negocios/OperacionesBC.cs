@@ -9,15 +9,15 @@ namespace Negocios
 {
     public class OperacionesBC
     {
-        public Operacion ObtenerOperacion(CryptoPILContext db, int id)
+        public List<Operacion>  ObtenerOperacion(CryptoPILContext db, int id)
         {
             var listOperacion = db.Operaciones.ToList();
-            var este = new Operacion();
+            List<Operacion> este = new List<Operacion>();
             foreach (var item in listOperacion)
             {
                 if (item.IdCuenta == id)
                 {
-                    este = item;
+                    este.Add(item);
                 }
             }
             return este;

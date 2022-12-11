@@ -25,7 +25,11 @@
         <tbody>
           <tr class="text-center" *ngFor="let element of billetera; let i = index">
             
-            <td>{{element.nombre}} </td>
+            <td *ngIf="element.idMoneda == 1">Bitcoin </td>
+            <td *ngIf="element.idMoneda == 2">Ethereum </td>
+            <td *ngIf="element.idMoneda == 3">USDT</td>
+            <td *ngIf="element.idMoneda == 4">DAI </td>
+            <td *ngIf="element.idMoneda == 5">USDC</td>
             <td>{{element.unidades}}</td>
             <td class="col-1">{{element.saldoMoneda | currency}}</td>
             
@@ -68,10 +72,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let element of movimientos; index as i" class="text-center">
-            <td [ngClass]="element.operacion === 'Deposito' ? 'text-success' : 'text-danger'">
-              {{ element.operacion}}
+            <td [ngClass]="element.idTipoOperacion === 1 ? 'text-success' : 'text-danger'">
+              <span *ngIf="element.idTipoOperacion === 1">Deposito</span>
+              <span *ngIf="element.idTipoOperacion === 2">Extracción</span>
             </td>
-            <td>{{ element.nombre }}</td>
+            <td>{{ element.idMoneda }}</td>
             <td>{{ element.unidades }}</td>
             <td class="col-1">{{ element.monto | currency}}</td>
             <td>{{ element.fechaOperacion}}</td>

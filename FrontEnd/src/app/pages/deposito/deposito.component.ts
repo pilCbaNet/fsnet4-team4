@@ -3,6 +3,7 @@ import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cuentas } from 'src/app/models/cuentas';
 import { CuentaService } from 'src/app/services/cuenta.service';
+import { ComunicacionService } from 'src/app/services/comunicacion.service';
 
 @Component({
   selector: 'app-deposito',
@@ -12,7 +13,7 @@ import { CuentaService } from 'src/app/services/cuenta.service';
 
 export class DepositoComponent implements OnInit {
   form: FormGroup;
-  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService) {
+  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
       unidades: ['', [Validators.required]],
@@ -38,6 +39,7 @@ export class DepositoComponent implements OnInit {
   }
 
   depositar(){
+    let user= this.comunicacion.getUser();
     if(this.form.valid){
       let operacion:string = "Deposito"
       let moneda:string = this.seleccionado.nombre;
@@ -46,7 +48,7 @@ export class DepositoComponent implements OnInit {
       let fecha:string= new Date().toLocaleString();
       
       let cuenta: Cuentas= new Cuentas(operacion,moneda,unidades,importeArs,fecha)
-      this.myService.depositar(cuenta).subscribe();
+      this.myService.depositar(user.idCuenta,cuenta).subscribe();
       
     }
     else{

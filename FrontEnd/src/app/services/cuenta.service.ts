@@ -24,9 +24,10 @@ export class CuentaService {
    return this.http.get('https://localhost:7245/api/Operaciones/'+id);
   }
 
-  depositar(cuenta:Cuentas):Observable<any>{
+  depositar(id:any, cuenta:Cuentas):Observable<any>{
 
-    return this.http.post('http://localhost:3000/cuenta',cuenta);
+    return this.http.put('https://localhost:7245/api/Cuentas/'+ id , cuenta)
+    
 
   }
 }

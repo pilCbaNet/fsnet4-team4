@@ -23,7 +23,7 @@ namespace CryptoPILWebApi.Controllers
 
        
         [HttpGet("{idCuenta}")]
-        public Operacion? Get(int idCuenta)
+        public List<Operacion> Get(int idCuenta)
         {
             using (var db = new CryptoPILContext())
             {

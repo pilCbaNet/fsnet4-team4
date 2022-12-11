@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cuentas } from 'src/app/models/cuentas';
 import { CuentaService } from 'src/app/services/cuenta.service';
 import { Router } from '@angular/router';
+import { ComunicacionService } from 'src/app/services/comunicacion.service';
 
 interface Moneda {
   nombre: string;
@@ -19,7 +20,7 @@ interface Moneda {
 export class TransferirComponent implements OnInit {
 
   form: FormGroup;
-  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService,private router:Router) {
+  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService,private router:Router, private comunicacion:ComunicacionService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
       unidades: ['', [Validators.required]],
@@ -47,6 +48,7 @@ export class TransferirComponent implements OnInit {
   }
 
   retirar(){
+    let user= this.comunicacion.getUser();
     if(this.form.valid){
       let operacion:string = "Extraccion"
       let moneda:string = this.seleccionado.nombre;
@@ -54,7 +56,7 @@ export class TransferirComponent implements OnInit {
       let importeArs:number = this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
       let cuenta: Cuentas= new Cuentas(operacion,moneda,unidades,importeArs,fecha)
-      this.myService.depositar(cuenta).subscribe();
+      this.myService.depositar(user.idCuenta, cuenta).subscribe();
     }
     else{
       alert("Complete todos los campos!")
