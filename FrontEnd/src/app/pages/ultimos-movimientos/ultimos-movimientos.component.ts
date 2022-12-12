@@ -72,7 +72,7 @@ export class UltimosMovimientosComponent implements OnInit {
       this.myService.obtenerMovimientos(this.user.idCuenta).subscribe(data =>{this.movimientos = data, console.log(data)} );
       }
     
-    //ya arregle el back para que traiga una lista probar mañana esto para traer siempre asi para que queden los arrays y no se rompa el ngfor
+    
     
 
 }

@@ -1,24 +1,17 @@
 export class MonedasDeCuenta {
     
+    idCuenta:number;
     idMoneda:number;
-    nombre:string;
     unidades:number;
     saldoMoneda:number;
 
-    constructor(idMoneda:number,unidades:number,saldoMoneda:number){
+    constructor(idCuenta:number,idMoneda:number,unidades:number,saldoMoneda:number){
+        this.idCuenta = idCuenta;
         this.idMoneda = idMoneda;
-        if(idMoneda == 1){
-            this.nombre = "Bitcoin"
-        }
-        else{
-            this.nombre = "Otro"
-        }
         this.unidades = unidades;
         this.saldoMoneda = saldoMoneda;
     }
 
-    public setNombre(nombre: string){
-        this.nombre = nombre;
-    }
+
 
 }

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Cuentas } from 'src/app/models/cuentas';
+import { Operaciones} from 'src/app/models/Operaciones';
+import { Cuenta } from 'src/app/models/cuenta';
 import { CuentaService } from 'src/app/services/cuenta.service';
 import { Router } from '@angular/router';
 import { ComunicacionService } from 'src/app/services/comunicacion.service';
 
 interface Moneda {
+  idMoneda:number;
   nombre: string;
   precioXunidad: number;
 }
@@ -50,13 +52,15 @@ export class TransferirComponent implements OnInit {
   retirar(){
     let user= this.comunicacion.getUser();
     if(this.form.valid){
-      let operacion:string = "Extraccion"
-      let moneda:string = this.seleccionado.nombre;
+      let operacion:number= 2;
+      let saldo:number = this.precio*this.unidades ;
+      let moneda:number = this.seleccionado.idMoneda;
       let unidades:number = this.unidades;
-      let importeArs:number = this.precio*this.unidades;
+      let monto:number = this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
-      let cuenta: Cuentas= new Cuentas(operacion,moneda,unidades,importeArs,fecha)
-      this.myService.depositar(user.idCuenta, cuenta).subscribe();
+      let operaciones: Operaciones= new Operaciones(moneda,unidades,monto,operacion,user.idCuenta);
+      console.log(operaciones);
+      this.myService.depositar(operaciones).subscribe();
     }
     else{
       alert("Complete todos los campos!")

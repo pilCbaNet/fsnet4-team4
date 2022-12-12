@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Cuentas } from 'src/app/models/cuentas';
+import { Operaciones } from 'src/app/models/Operaciones';
 import { CuentaService } from 'src/app/services/cuenta.service';
 import { ComunicacionService } from 'src/app/services/comunicacion.service';
+import { MonedasDeCuentaService } from 'src/app/services/monedasDeCuenta.service';
+import { MonedasDeCuenta } from 'src/app/models/monedasDeCuenta';
+
 
 @Component({
   selector: 'app-deposito',
@@ -13,7 +16,7 @@ import { ComunicacionService } from 'src/app/services/comunicacion.service';
 
 export class DepositoComponent implements OnInit {
   form: FormGroup;
-  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService) {
+  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService, private monedasService:MonedasDeCuentaService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
       unidades: ['', [Validators.required]],
@@ -41,15 +44,18 @@ export class DepositoComponent implements OnInit {
   depositar(){
     let user= this.comunicacion.getUser();
     if(this.form.valid){
-      let operacion:string = "Deposito"
-      let moneda:string = this.seleccionado.nombre;
+      let operacion:number= 1;
+      let saldo:number = this.precio*this.unidades ;
+      let moneda:number = this.seleccionado.idMoneda;
       let unidades:number = this.unidades;
-      let importeArs:number = this.precio*this.unidades;
+      let monto:number = this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
-      
-      let cuenta: Cuentas= new Cuentas(operacion,moneda,unidades,importeArs,fecha)
-      this.myService.depositar(user.idCuenta,cuenta).subscribe();
-      
+      let operaciones: Operaciones= new Operaciones(moneda,unidades,monto,operacion,user.idCuenta);
+      console.log(operaciones);
+      this.myService.depositar(operaciones).subscribe();
+      let monedasDeCuenta: MonedasDeCuenta = new MonedasDeCuenta(user.idCuenta,moneda,unidades,monto);
+      console.log(monedasDeCuenta);
+      this.monedasService.actualizarBilletera(monedasDeCuenta).subscribe();
     }
     else{
       alert("Complete todos los campos!")

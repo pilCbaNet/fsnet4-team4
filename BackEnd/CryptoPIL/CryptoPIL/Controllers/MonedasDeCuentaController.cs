@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Entidades;
 using Negocios;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -33,20 +34,33 @@ namespace CryptoPILWebApi.Controllers
         }
 
         // POST api/<MonedasDeCuentaController>
+        [EnableCors("AllowAllOrigins")]
         [HttpPost]
-        public ActionResult Post(MonedasDeCuenta monedasDeCuenta)
+        public ActionResult Post(MonedasDeCuenta monedaDeCuenta)
         {
             using (var db = new CryptoPILContext())
             {
-                var existeMonedaDeCuenta = db.MonedasDeCuenta.FirstOrDefault(x => x.IdMonedasDeCuenta == monedasDeCuenta.IdMonedasDeCuenta);
-                if (existeMonedaDeCuenta != null)
-                {
-                    return BadRequest("La moneda de cuenta ya existe.");
-                }
+                
+                
+                
+                        var existeMoneda = db.MonedasDeCuenta.FirstOrDefault(x => x.IdMoneda == monedaDeCuenta.IdMoneda && x.IdCuenta == monedaDeCuenta.IdCuenta);
+                        if (existeMoneda != null)
+                        {
+                            existeMoneda.Unidades += monedaDeCuenta.Unidades;
+                            existeMoneda.SaldoMoneda += monedaDeCuenta.SaldoMoneda;
+                            
 
-                db.Add(monedasDeCuenta);
+                        }
+                        else
+                        {
+                            db.Add(monedaDeCuenta);
+                            
+                        }
                 db.SaveChanges();
                 return Ok("Moneda de cuenta creada con éxito");
+
+
+
             }
         }
 

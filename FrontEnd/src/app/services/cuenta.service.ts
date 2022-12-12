@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cuentas } from '../models/cuentas';
+import { Operaciones} from '../models/Operaciones';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +24,9 @@ export class CuentaService {
    return this.http.get('https://localhost:7245/api/Operaciones/'+id);
   }
 
-  depositar(id:any, cuenta:Cuentas):Observable<any>{
+  depositar(cuenta:Operaciones):Observable<any>{
 
-    return this.http.put('https://localhost:7245/api/Cuentas/'+ id , cuenta)
+    return this.http.post('https://localhost:7245/api/Operaciones/', cuenta)
     
 
   }

@@ -13,8 +13,8 @@ namespace Entidades
         public int IdTipoOperacion { get; set; }
         public int IdCuenta { get; set; }
 
-        public virtual Cuenta IdCuentaNavigation { get; set; } = null!;
-        public virtual Moneda IdMonedaNavigation { get; set; } = null!;
-        public virtual TipoOperacion IdTipoOperacionNavigation { get; set; } = null!;
+        public virtual Cuenta? IdCuentaNavigation { get; set; } = null!;
+        public virtual Moneda? IdMonedaNavigation { get; set; } = null!;
+        public virtual TipoOperacion? IdTipoOperacionNavigation { get; set; } = null!;
     }
 }
