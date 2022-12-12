@@ -31,21 +31,21 @@
           <a class="nav-link" aria-current="page"  routerLink="/cotizaciones">Cotizaciones</a>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" aria-current="page" routerLink="/ultimos-movimientos" *ngIf="autenticado" >Ultimos Movimientos</a>
+          <a class="nav-link" aria-current="page" routerLink="/ultimos-movimientos" *ngIf="estaAutenticado" >Ultimos Movimientos</a>
         </li>
       </ul>
       <form class="d-flex">
 
-        <button (click)="mostrarLogin()" *ngIf="!autenticado" type="button" class="btn btn-light btn-lg login" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false"  >
+        <button (click)="mostrarLogin()" *ngIf="!estaAutenticado" type="button" class="btn btn-light btn-lg login" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false"  >
           Ingresar
         </button>
 
 
 
-        <button (click)="mostrarRegistro()" *ngIf="!autenticado" type="button" class="btn btn-primary me-3 btn-lg signup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false">
+        <button (click)="mostrarRegistro()" *ngIf="!estaAutenticado" type="button" class="btn btn-primary me-3 btn-lg signup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false">
           Registrarse
         </button>
-        <button (click)="cerrarSesion()"  *ngIf="autenticado" type="button" class="btn btn-primary me-3 btn-lg signup">
+        <button (click)="cerrarSesion()"  *ngIf="estaAutenticado" type="button" class="btn btn-primary me-3 btn-lg signup">
           Cerrar sesion
         </button>
       </form>

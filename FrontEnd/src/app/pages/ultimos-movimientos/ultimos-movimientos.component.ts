@@ -3,6 +3,7 @@ import { Cuenta } from 'src/app/models/cuenta';
 import { MonedasDeCuenta } from 'src/app/models/monedasDeCuenta';
 import { ComunicacionService } from 'src/app/services/comunicacion.service';
 import { CuentaService } from 'src/app/services/cuenta.service';
+import { LoginService } from 'src/app/services/login.service';
 import { DepositoComponent } from '../deposito/deposito.component';
 
 @Component({
@@ -17,7 +18,9 @@ export class UltimosMovimientosComponent implements OnInit {
   movimientos:any;
   billetera: any;
   bitcoin=0;
-  constructor(private myService: CuentaService, private comunicacion:ComunicacionService) 
+  dato : any;
+    
+  constructor(private myService: CuentaService, private comunicacion:ComunicacionService, private authService: LoginService) 
   {
    
   }
@@ -43,8 +46,8 @@ export class UltimosMovimientosComponent implements OnInit {
 
   getCuenta(){
     this.user= this.comunicacion.getUser();
-    if(this.user.idCuenta != null){
-      this.myService.obtenerCuenta(this.user.idCuenta).subscribe({
+    if(this.authService.usuarioAutenticado.idCuenta != null){
+      this.myService.obtenerCuenta(this.authService.usuarioAutenticado.idCuenta).subscribe({
         next: (data) => {
           
           this.cuenta=data;
@@ -56,23 +59,23 @@ export class UltimosMovimientosComponent implements OnInit {
 
   getBilletera(){
     this.user= this.comunicacion.getUser();
-    console.log(this.user);
-    if(this.user.idCuenta == null){
+    //console.log(this.user);
+    if(this.authService.usuarioAutenticado.idCuenta == null){
       this.billetera=[];
     }
     else{
-      this.myService.obtenerBilletera(this.user.idCuenta).subscribe(data=>{
+      this.myService.obtenerBilletera(this.authService.usuarioAutenticado.idCuenta).subscribe(data=>{
        
         this.billetera=data
       });
-      console.log(this.billetera)
+      //console.log(this.billetera)
       
     }
     }
 
     getMovimientos(){
       this.user= this.comunicacion.getUser();
-      this.myService.obtenerMovimientos(this.user.idCuenta).subscribe(data =>{this.movimientos = data, console.log(data)} );
+      this.myService.obtenerMovimientos(this.authService.usuarioAutenticado.idCuenta).subscribe(data =>{this.movimientos = data} );
       }
     
     

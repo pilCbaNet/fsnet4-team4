@@ -7,6 +7,7 @@ import { ComunicacionService } from 'src/app/services/comunicacion.service';
 import { MonedasDeCuentaService } from 'src/app/services/monedasDeCuenta.service';
 import { MonedasDeCuenta } from 'src/app/models/monedasDeCuenta';
 import { Cuenta } from 'src/app/models/cuenta';
+import { LoginService } from 'src/app/services/login.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { Cuenta } from 'src/app/models/cuenta';
 
 export class DepositoComponent implements OnInit {
   form: FormGroup;
-  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService, private monedasService:MonedasDeCuentaService) {
+  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService, private monedasService:MonedasDeCuentaService, private authService: LoginService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
       unidades: ['', [Validators.required]],
@@ -43,7 +44,7 @@ export class DepositoComponent implements OnInit {
   }
 
   depositar(){
-    let user= this.comunicacion.getUser();
+    //let user= this.comunicacion.getUser();
     if(this.form.valid){
       let operacion:number= 1;
       let saldo:number = this.precio*this.unidades ;
@@ -51,14 +52,14 @@ export class DepositoComponent implements OnInit {
       let unidades:number = this.unidades;
       let monto:number = this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
-      let operaciones: Operaciones= new Operaciones(moneda,unidades,monto,operacion,user.idCuenta);
+      let operaciones: Operaciones= new Operaciones(moneda,unidades,monto,operacion,this.authService.usuarioAutenticado.idCuenta);
       console.log(operaciones);
       this.myService.depositar(operaciones).subscribe();
-      let monedasDeCuenta: MonedasDeCuenta = new MonedasDeCuenta(user.idCuenta,moneda,unidades,monto);
+      let monedasDeCuenta: MonedasDeCuenta = new MonedasDeCuenta(this.authService.usuarioAutenticado.idCuenta,moneda,unidades,monto);
       console.log(monedasDeCuenta);
       this.monedasService.actualizarBilletera(monedasDeCuenta).subscribe();
       let cuenta:Cuenta = new Cuenta(0,monto);
-      this.myService.actualizarCuenta(user.idCuenta,cuenta).subscribe();
+      this.myService.actualizarCuenta(this.authService.usuarioAutenticado.idCuenta,cuenta).subscribe();
     }
     else{
       alert("Complete todos los campos!")

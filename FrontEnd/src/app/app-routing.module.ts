@@ -4,6 +4,7 @@ import { CotizacionesComponent } from './layout/cotizaciones/cotizaciones.compon
 import { LandingComponent } from './pages/landing/landing.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { UltimosMovimientosComponent } from './pages/ultimos-movimientos/ultimos-movimientos.component';
+import { AuthGuard } from './services/authguard.service';
 
 
 const routes: Routes = [

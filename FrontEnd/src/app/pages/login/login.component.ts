@@ -14,16 +14,19 @@ import { usuario } from 'src/app/models/usuario';
 export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   autenticado: boolean= false;
+  estaAutenticado:boolean=false;
   [x: string]: any;
   @Output() evento = new EventEmitter<boolean>();
-  constructor(private formBuilder: FormBuilder, private myService:LoginService,private router:Router, private comunicacion:ComunicacionService) {
+  constructor(private formBuilder: FormBuilder, private myService:LoginService,private router:Router, private comunicacion:ComunicacionService,private service:LoginService) {
     this.form = this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.estaAutenticado.subscribe(res=>( this.estaAutenticado=res));
+  }
   get Mail()
   {
    return this.form.get("mail");

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,19 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private service:LoginService) { }
 
   autenticado=false;
+  estaAutenticado:boolean=false;
+  dato = localStorage.getItem('currentUser');
+  
   ngOnInit(): void {
+    console.log(this.dato );
+    this.service.estaAutenticado.subscribe(res=>( this.estaAutenticado=res));
+    if(this.dato != null){
+      this.estaAutenticado=true;
+     }
+    
   }
   
   public modalTitle:string= "";
@@ -44,5 +54,6 @@ export class NavbarComponent implements OnInit {
     this.register = false;
     this.login = false;
     this.router.navigate(['inicio']);
+    this.service.logout();
   }
 }
