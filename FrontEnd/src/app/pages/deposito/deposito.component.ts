@@ -57,7 +57,7 @@ export class DepositoComponent implements OnInit {
       this.myService.depositar(operaciones).subscribe();
       let monedasDeCuenta: MonedasDeCuenta = new MonedasDeCuenta(this.authService.usuarioAutenticado.idCuenta,moneda,unidades,monto);
       console.log(monedasDeCuenta);
-      this.monedasService.actualizarBilletera(monedasDeCuenta).subscribe();
+      this.monedasService.actualizarBilletera(1,monedasDeCuenta).subscribe();
       let cuenta:Cuenta = new Cuenta(0,monto);
       this.myService.actualizarCuenta(this.authService.usuarioAutenticado.idCuenta,cuenta).subscribe();
     }

@@ -35,8 +35,8 @@ namespace CryptoPILWebApi.Controllers
 
         // POST api/<MonedasDeCuentaController>
         [EnableCors("AllowAllOrigins")]
-        [HttpPost]
-        public ActionResult Post(MonedasDeCuenta monedaDeCuenta)
+        [HttpPost("{IdTipoOperacion}")]
+        public ActionResult Post(int idTipoOperacion,MonedasDeCuenta monedaDeCuenta)
         {
             using (var db = new CryptoPILContext())
             {
@@ -46,9 +46,25 @@ namespace CryptoPILWebApi.Controllers
                         var existeMoneda = db.MonedasDeCuenta.FirstOrDefault(x => x.IdMoneda == monedaDeCuenta.IdMoneda && x.IdCuenta == monedaDeCuenta.IdCuenta);
                         if (existeMoneda != null)
                         {
-                            existeMoneda.Unidades += monedaDeCuenta.Unidades;
-                            existeMoneda.SaldoMoneda += monedaDeCuenta.SaldoMoneda;
-                            
+                            if(idTipoOperacion == 2)
+                            {
+                                if(existeMoneda.SaldoMoneda > monedaDeCuenta.SaldoMoneda)
+                                {
+                                    return Ok(null);
+                                }
+                                else
+                                {
+                                    existeMoneda.Unidades += monedaDeCuenta.Unidades;
+                                    existeMoneda.SaldoMoneda += monedaDeCuenta.SaldoMoneda;
+                                }
+                            }
+                            else
+                            {
+                             existeMoneda.Unidades += monedaDeCuenta.Unidades;
+                                existeMoneda.SaldoMoneda += monedaDeCuenta.SaldoMoneda;
+                            }
+
+
 
                         }
                         else

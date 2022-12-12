@@ -11,9 +11,9 @@ export class MonedasDeCuentaService {
 
   constructor(private http:HttpClient) { }
 
-  actualizarBilletera(cuenta:MonedasDeCuenta):Observable<any>
+  actualizarBilletera(id:number,cuenta:MonedasDeCuenta):Observable<any>
   {
-   return this.http.post<any>('https://localhost:7245/api/MonedasDeCuenta/',cuenta);
+   return this.http.post<any>('https://localhost:7245/api/MonedasDeCuenta/'+id,cuenta);
   }
 
  
