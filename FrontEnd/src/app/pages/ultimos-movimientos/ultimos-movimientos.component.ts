@@ -24,6 +24,9 @@ export class UltimosMovimientosComponent implements OnInit {
 
   ngOnChanges():void{
     location.reload();
+    this.getCuenta();
+    this.getBilletera();
+    this.getMovimientos();
   }
  
 
@@ -53,7 +56,7 @@ export class UltimosMovimientosComponent implements OnInit {
 
   getBilletera(){
     this.user= this.comunicacion.getUser();
-    
+    console.log(this.user);
     if(this.user.idCuenta == null){
       this.billetera=[];
     }

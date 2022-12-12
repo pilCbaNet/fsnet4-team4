@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Operaciones} from '../models/Operaciones';
+import { Cuenta } from '../models/cuenta';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,13 @@ export class CuentaService {
 
     return this.http.post('https://localhost:7245/api/Operaciones/', cuenta)
     
+  }
 
+  actualizarCuenta(id:number,cuenta:Cuenta):Observable<any>{
+    return this.http.put('https://localhost:7245/api/Cuentas/' + id, cuenta)
+  }
+
+  crearCuenta(cuenta:Cuenta):Observable<any>{
+    return this.http.post<any>('https://localhost:7245/api/Cuentas',cuenta)
   }
 }

@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -35,6 +36,7 @@ namespace CryptoPILWebApi.Controllers
         }
 
         // POST api/<CuentasController>
+        [EnableCors("AllowAllOrigins")]
         [HttpPost]
         public ActionResult Post(Cuenta cuenta)
         {
@@ -47,11 +49,14 @@ namespace CryptoPILWebApi.Controllers
                 }
                 db.Add(cuenta);
                 db.SaveChanges();
-                return Ok("La  cuenta fue  creada con éxito");
+                List<Cuenta> cuentas = db.Cuentas.ToList();
+                var cuentaCreada = cuentas[cuentas.Count - 1];
+                return Ok(cuentaCreada);
             }
         }
 
         // PUT api/<CuentasController>/5
+        [EnableCors("AllowAllOrigins")]
         [HttpPut("{IdCuenta}")]
         public string Put(int IdCuenta, [FromBody] Cuenta cuentaActualizada)
         {
@@ -62,8 +67,8 @@ namespace CryptoPILWebApi.Controllers
                     var CuentaModificar = db.Cuentas.FirstOrDefault(x => x.IdCuenta == IdCuenta);
                     if (CuentaModificar != null)
                     {
-                        CuentaModificar.Cbu = cuentaActualizada.Cbu;
-                        CuentaModificar.SaldoTotal = cuentaActualizada.SaldoTotal;
+                        
+                        CuentaModificar.SaldoTotal += cuentaActualizada.SaldoTotal;
 
 
 

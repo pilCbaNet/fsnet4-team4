@@ -58,9 +58,11 @@ namespace CryptoPIL.Controllers
             {
                 db.Usuarios.Add(oUsuario);
                 db.SaveChanges();
+                var user = new UsuariosBC().ObtenerUsuarios(db).Where(auth => auth.Email == oUsuario.Email && auth.Password == oUsuario.Password).FirstOrDefault();
+                return user;
             }
-
-            return oUsuario;
+            
+            
         }
 
         // PUT api/<UsuariosController>/5

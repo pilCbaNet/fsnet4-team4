@@ -6,6 +6,7 @@ import { CuentaService } from 'src/app/services/cuenta.service';
 import { ComunicacionService } from 'src/app/services/comunicacion.service';
 import { MonedasDeCuentaService } from 'src/app/services/monedasDeCuenta.service';
 import { MonedasDeCuenta } from 'src/app/models/monedasDeCuenta';
+import { Cuenta } from 'src/app/models/cuenta';
 
 
 @Component({
@@ -56,6 +57,8 @@ export class DepositoComponent implements OnInit {
       let monedasDeCuenta: MonedasDeCuenta = new MonedasDeCuenta(user.idCuenta,moneda,unidades,monto);
       console.log(monedasDeCuenta);
       this.monedasService.actualizarBilletera(monedasDeCuenta).subscribe();
+      let cuenta:Cuenta = new Cuenta(0,monto);
+      this.myService.actualizarCuenta(user.idCuenta,cuenta).subscribe();
     }
     else{
       alert("Complete todos los campos!")

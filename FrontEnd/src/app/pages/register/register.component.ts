@@ -1,7 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Cuenta } from 'src/app/models/cuenta';
 import { Register } from 'src/app/models/register';
+import { usuario } from 'src/app/models/usuario';
+import { ComunicacionService } from 'src/app/services/comunicacion.service';
+import { CuentaService } from 'src/app/services/cuenta.service';
 import { RegisterService } from 'src/app/services/register.service';
 import { ConfirmedValidator } from './confirmed.validator';
 @Component({
@@ -16,7 +20,7 @@ export class RegisterComponent implements OnInit {
   maxDate = "";
   autenticado: boolean = false;
   @Output() evento = new EventEmitter<boolean>();
-  constructor(private formBuilder: FormBuilder, private myService: RegisterService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private myService: RegisterService, private router: Router, private cuentaService:CuentaService, private comunicacion:ComunicacionService) {
     this.form = formBuilder.group(
       {
         nombre: ['', [Validators.required]],
@@ -40,6 +44,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.fechaMaxima();
+    console.log((this.generarCBU()))
+    
   }
 
   get Password1() {
@@ -75,19 +81,32 @@ export class RegisterComponent implements OnInit {
       let nacimiento: Date = this.form.get('nacimiento')?.value;
       let apellido: string = this.form.get('apellido')?.value;
 
-
-      let register: Register = new Register(nombre, apellido, email, password1, dni, nacimiento);
-      this.myService.register(register).subscribe({
-        next: (data) => {
-          console.log(data);
-          this.form.reset();
-          this.autenticado = true;
-          this.evento.emit(this.autenticado);
-          this.router.navigate(['ultimos-movimientos']);
-
+      let cuenta: Cuenta = new Cuenta(this.generarCBU(),0)
+      console.log(cuenta);
+      let idC:number = 0;
+      this.cuentaService.crearCuenta(cuenta).subscribe({next:(data)=> {console.log(data), idC = data.idCuenta , console.log(idC);
+        let register: Register = new Register(nombre, apellido, email, password1, dni, nacimiento,idC);
+        this.myService.register(register).subscribe({
+          next: (data) => {
+            console.log(data);
+            this.form.reset();
+            this.autenticado = true;
+            this.evento.emit(this.autenticado);
+            let user: usuario = new usuario(data.idUsuario, data.nombre,data.apellido,data.email,data.password,data.dni,data.fechaNacimiento,data.fechaAlta,data.idCuenta);
+            this.comunicacion.setUser(user);
+            this.router.navigate(['ultimos-movimientos']);
+            
+  
+          }
+  
         }
+        )
+      
       }
-      )
+     });
+      
+      
+      
 
     }
   }
@@ -108,4 +127,7 @@ export class RegisterComponent implements OnInit {
     this.maxDate = año.toString() + '-' + today_month.toString() + '-' + dia
   }
 
+  generarCBU(){
+    return Math.floor(Math.random()*1000000000)
+  }
 }

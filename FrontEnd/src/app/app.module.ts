@@ -15,7 +15,7 @@ import { CotizacionesComponent } from './layout/cotizaciones/cotizaciones.compon
 import { UltimosMovimientosComponent } from './pages/ultimos-movimientos/ultimos-movimientos.component';
 import { DepositoComponent } from './pages/deposito/deposito.component';
 import { TransferirComponent } from './pages/transferir/transferir.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { TransferirComponent } from './pages/transferir/transferir.component';
     
 
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 
