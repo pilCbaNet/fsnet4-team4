@@ -42,6 +42,7 @@ testem.log
 Thumbs.db
 
 # BACKEND
+.vs/*
 backend/cryptoPil/.vs/*
 backend/cryptoPil/cryptoPil/bin/*
 backend/cryptoPil/cryptoPil/obj/*
