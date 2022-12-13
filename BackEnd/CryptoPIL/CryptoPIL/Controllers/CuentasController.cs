@@ -58,10 +58,9 @@ namespace CryptoPILWebApi.Controllers
         // PUT api/<CuentasController>/5
         [EnableCors("AllowAllOrigins")]
         [HttpPut("{IdCuenta}")]
-        public string Put(int IdCuenta, [FromBody] Cuenta cuentaActualizada)
+        public Cuenta Put(int IdCuenta, [FromBody] Cuenta cuentaActualizada)
         {
-            try
-            {
+            
                 using (var db = new CryptoPILContext())
                 {
                     var CuentaModificar = db.Cuentas.FirstOrDefault(x => x.IdCuenta == IdCuenta);
@@ -73,17 +72,14 @@ namespace CryptoPILWebApi.Controllers
 
 
                         db.SaveChanges();
-                        return "La  cuenta fue  modificada con éxito";
+                        return cuentaActualizada;
 
                     }
+                else { return null; }
                 }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return "Error al modificar la  cuenta";
+                
+            
+            
         }
 
         // DELETE api/<CuentasController>/5

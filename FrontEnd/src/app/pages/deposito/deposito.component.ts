@@ -8,6 +8,7 @@ import { MonedasDeCuentaService } from 'src/app/services/monedasDeCuenta.service
 import { MonedasDeCuenta } from 'src/app/models/monedasDeCuenta';
 import { Cuenta } from 'src/app/models/cuenta';
 import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { LoginService } from 'src/app/services/login.service';
 
 export class DepositoComponent implements OnInit {
   form: FormGroup;
-  constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService, private monedasService:MonedasDeCuentaService, private authService: LoginService) {
+  constructor(private router:Router,private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService, private monedasService:MonedasDeCuentaService, private authService: LoginService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
       unidades: ['', [Validators.required]],
@@ -60,6 +61,9 @@ export class DepositoComponent implements OnInit {
       this.monedasService.actualizarBilletera(1,monedasDeCuenta).subscribe();
       let cuenta:Cuenta = new Cuenta(0,monto);
       this.myService.actualizarCuenta(this.authService.usuarioAutenticado.idCuenta,cuenta).subscribe();
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=> this.router.navigate(["ultimos-movimientos"]));
+
+
     }
     else{
       alert("Complete todos los campos!")

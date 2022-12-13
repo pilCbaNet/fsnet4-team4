@@ -58,7 +58,7 @@ export class TransferirComponent implements OnInit {
       let operacion:number= 2;
       let saldo:number = this.precio*this.unidades ;
       let moneda:number = this.seleccionado.idMoneda;
-      let unidades:number = this.unidades;
+      let unidades:number = - this.unidades;
       let monto:number = - this.precio*this.unidades;
       let fecha:string= new Date().toLocaleString();
       let operaciones: Operaciones= new Operaciones(moneda,unidades,monto,operacion,this.authService.usuarioAutenticado.idCuenta);
@@ -66,12 +66,16 @@ export class TransferirComponent implements OnInit {
       
       let monedasDeCuenta: MonedasDeCuenta = new MonedasDeCuenta(this.authService.usuarioAutenticado.idCuenta,moneda,unidades,monto);
       console.log(monedasDeCuenta);
-      this.monedasService.actualizarBilletera(2,monedasDeCuenta).subscribe(data=>{if(data == null){alert("Verifique si cuenta con moneda y saldo para transferir")}
-      else{
-        this.myService.depositar(operaciones).subscribe();
+      let tieneSaldo: boolean = false;
+      this.monedasService.actualizarBilletera(2,monedasDeCuenta).subscribe(data =>{if( data != null){this.myService.depositar(operaciones).subscribe();
         let cuenta:Cuenta = new Cuenta(0,monto);
         this.myService.actualizarCuenta(this.authService.usuarioAutenticado.idCuenta,cuenta).subscribe();
-      }});
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=> this.router.navigate(["ultimos-movimientos"]));}
+      if(data == null){alert("Verifique Si tiene saldo y monedas para transferir")}
+      });
+      
+      
+      
       
     }
     else{
