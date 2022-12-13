@@ -3,7 +3,7 @@
     <h2 class="d-inline col-12 col-lg-6 text-center title">BILLETERA </h2>
   </div>
   <div *ngIf="billetera?.length === 0">
-    <p class="text-center mt-4 text-uppercase">No hay monedas en su cuenta</p>
+    <p class="text-center mt-4 text-uppercase display-6">No hay monedas en su cuenta</p>
   </div>
 
   <div *ngIf="billetera?.length !== 0" >
@@ -49,12 +49,12 @@
 
   <div class="row fila justify-content-evenly">
     <h2 class="d-inline col-12 col-lg-6 text-center title">ULTIMOS MOVIMIENTOS</h2>
-    <button class="col-12 col-sm-4 col-lg-2 btn btn-primary btn-lg mt-1" data-bs-toggle="modal" data-bs-target="#depositar" data-backdrop="static" data-keyboard="false">Depositar</button>
-    <button class="col-12 col-sm-4 col-lg-2 btn btn-primary btn-lg mt-1" data-bs-toggle="modal" data-bs-target="#transferir" data-backdrop="static" data-keyboard="false">Transferir</button>
+    <button class="col-12 col-sm-4 col-lg-2 btn btn-primary btn-lg mt-1 text-uppercase" data-bs-toggle="modal" data-bs-target="#depositar" data-backdrop="static" data-keyboard="false">Depositar</button>
+    <button class="col-12 col-sm-4 col-lg-2 btn btn-primary btn-lg mt-1 text-uppercase" data-bs-toggle="modal" data-bs-target="#transferir" data-backdrop="static" data-keyboard="false">Transferir</button>
   </div>
 
   <div *ngIf="movimientos?.length === 0">
-    <h1 class="text-center mt-4">No hay operaciones realizadas</h1>
+    <p class="text-center mt-4 text-uppercase display-6">No hay movimientos en su cuenta</p>
   </div>
 
   <div *ngIf="movimientos?.length !== 0" class="mt-4">
@@ -72,9 +72,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let element of movimientos; index as i" class="text-center">
-            <td *ngIf="element.unidades!=0" [ngClass]="element.idTipoOperacion === 1 ? 'text-success' : 'text-danger'">
-              <span *ngIf="element.idTipoOperacion === 1">Deposito</span>
-              <span *ngIf="element.idTipoOperacion === 2">Extracción</span>
+            <td *ngIf="element.unidades!=0">
+              <span *ngIf="element.idTipoOperacion === 1" class="badge bg-success">Deposito</span>
+              <span *ngIf="element.idTipoOperacion === 2 " class="badge bg-danger">Extracción</span>
             </td>
             <td *ngIf="element.idMoneda == 1 && element.unidades!=0 ">Bitcoin </td>
             <td *ngIf="element.idMoneda == 2 && element.unidades!=0">Ethereum </td>
