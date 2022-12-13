@@ -2,10 +2,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cuenta } from 'src/app/models/cuenta';
+import { Login } from 'src/app/models/login';
 import { Register } from 'src/app/models/register';
 import { usuario } from 'src/app/models/usuario';
 import { ComunicacionService } from 'src/app/services/comunicacion.service';
 import { CuentaService } from 'src/app/services/cuenta.service';
+import { LoginService } from 'src/app/services/login.service';
 import { RegisterService } from 'src/app/services/register.service';
 import { ConfirmedValidator } from './confirmed.validator';
 @Component({
@@ -19,8 +21,11 @@ export class RegisterComponent implements OnInit {
   minDate = "1900-01-01";
   maxDate = "";
   autenticado: boolean = false;
+  estaAutenticado:boolean=false;
+  [x: string]: any;
+
   @Output() evento = new EventEmitter<boolean>();
-  constructor(private formBuilder: FormBuilder, private myService: RegisterService, private router: Router, private cuentaService:CuentaService, private comunicacion:ComunicacionService) {
+  constructor(private formBuilder: FormBuilder, private myService: RegisterService, private router: Router, private cuentaService:CuentaService, private comunicacion:ComunicacionService,private service:LoginService) {
     this.form = formBuilder.group(
       {
         nombre: ['', [Validators.required]],
@@ -44,7 +49,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.fechaMaxima();
-    console.log((this.generarCBU()))
+    //console.log((this.generarCBU()))
+    this.service.estaAutenticado.subscribe(res=>( this.estaAutenticado=res));
     
   }
 
@@ -94,22 +100,34 @@ export class RegisterComponent implements OnInit {
             this.evento.emit(this.autenticado);
             let user: usuario = new usuario(data.idUsuario, data.nombre,data.apellido,data.email,data.password,data.dni,data.fechaNacimiento,data.fechaAlta,data.idCuenta);
             this.comunicacion.setUser(user);
-            this.router.navigate(['ultimos-movimientos']);
+            //this.router.navigate(['ultimos-movimientos']);
+            localStorage.clear();
+            let login: Login = new Login(email,password1)
+            this.service.login(login).subscribe({
+              next:(data) => {
+                console.log(data);
+                if (data!= null){
+                  
+                  this.usuari=data;
+                  console.log(this.usuari)
+                  this.form.reset();
+                  this.autenticado = true;
+                  this.evento.emit(this.autenticado);
+                  this.router.navigate(['ultimos-movimientos']);
+                  
+                  
+          }
             
   
           }
-  
+            
         }
         )
-      
+        
       }
-     });
-      
-      
-      
-
+      })
     }
-  }
+      })}}
 
   fechaMaxima() {
     let today_date = new Date();

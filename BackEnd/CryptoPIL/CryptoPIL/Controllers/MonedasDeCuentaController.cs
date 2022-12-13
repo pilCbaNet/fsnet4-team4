@@ -48,7 +48,7 @@ namespace CryptoPILWebApi.Controllers
                         {
                             if(idTipoOperacion == 2)
                             {
-                                if(existeMoneda.SaldoMoneda > monedaDeCuenta.SaldoMoneda)
+                                if(existeMoneda.SaldoMoneda > monedaDeCuenta.SaldoMoneda ||  existeMoneda.SaldoMoneda == 0)
                                 {
                                     return Ok(null);
                                 }
@@ -69,7 +69,11 @@ namespace CryptoPILWebApi.Controllers
                         }
                         else
                         {
-                            db.Add(monedaDeCuenta);
+                            if(idTipoOperacion == 2)
+                            {
+                                return Ok(null);
+                            }
+                            else db.Add(monedaDeCuenta);
                             
                         }
                 db.SaveChanges();

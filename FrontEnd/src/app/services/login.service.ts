@@ -39,6 +39,7 @@ export class LoginService {
   logout(): void{
     localStorage.removeItem('currentUser');
     this.loggedIn.next(false);
+    localStorage.clear();
     
   }
 

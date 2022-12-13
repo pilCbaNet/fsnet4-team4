@@ -34,6 +34,7 @@ export class UltimosMovimientosComponent implements OnInit {
  
 
   ngOnInit(): void {
+    console.log(this.authService.usuarioAutenticado.idCuenta)
     this.getCuenta();
     this.getBilletera();
     this.getMovimientos();
@@ -60,22 +61,22 @@ export class UltimosMovimientosComponent implements OnInit {
   getBilletera(){
     this.user= this.comunicacion.getUser();
     //console.log(this.user);
-    if(this.authService.usuarioAutenticado.idCuenta == null){
-      this.billetera=[];
-    }
-    else{
+   // if(this.authService.usuarioAutenticado.idCuenta == null){
+   //   this.billetera=[];
+   // }
+    
       this.myService.obtenerBilletera(this.authService.usuarioAutenticado.idCuenta).subscribe(data=>{
        
         this.billetera=data
-      });
+      })
       //console.log(this.billetera)
       
     }
-    }
+    
 
     getMovimientos(){
       this.user= this.comunicacion.getUser();
-      this.myService.obtenerMovimientos(this.authService.usuarioAutenticado.idCuenta).subscribe(data =>{this.movimientos = data} );
+      this.myService.obtenerMovimientos(this.authService.usuarioAutenticado.idCuenta).subscribe(data =>{this.movimientos = data, console.log(this.movimientos)} );
       }
     
     
