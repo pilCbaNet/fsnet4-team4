@@ -3,15 +3,13 @@
     <h2 class="d-inline col-12 col-lg-6 text-center title">BILLETERA </h2>
   </div>
   <div *ngIf="billetera?.length === 0">
-    <h1 class="text-center mt-4">No hay monedas en su cuenta</h1>
+    <p class="text-center mt-4 text-uppercase">No hay monedas en su cuenta</p>
   </div>
 
   <div *ngIf="billetera?.length !== 0" >
-    <div class="row fila justify-content-evenly">
+    <div class="row fila justify-content-evenly datosCuenta">
       <div class="text-center "><p class="d-inline col-12 col-lg-6 text-center subtitle">Saldo Total: </p> </div>
       <div class="text-center"><p class="d-inline col-12 col-lg-6 text-center title"> {{cuenta.saldoTotal | currency}}</p></div>
-    </div>
-    <div class="row fila justify-content-evenly">
       <div class="text-center "><p class="d-inline col-12 col-lg-6 text-center subtitle">CBU: </p> </div>
       <div class="text-center"><p class="d-inline col-12 col-lg-6 text-center title"> {{cuenta.cbu}}</p></div>
     </div>

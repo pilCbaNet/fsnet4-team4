@@ -7,3 +7,19 @@
   font-family: "Nunito Sans",sans-serif!important;
   color: rgba(43, 28, 28, 0.788);
 }
+
+.datosCuenta{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.divDatos{
+  padding-left: 10px;
+    padding-top: 10px;
+    margin-left: 57px;
+    float: left;
+    position: relative;
+    width: 45%;
+    
+    height: auto;
+}

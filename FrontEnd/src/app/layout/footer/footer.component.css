@@ -1,6 +1,7 @@
 footer{
+  margin-top: 10px;
   border-top: 1px solid grey;
-  padding-top: 20px;
+ 
 }
 
 a{
@@ -17,3 +18,4 @@ a{
   font-weight: bold;
   font-size: 17px;
 }
+
