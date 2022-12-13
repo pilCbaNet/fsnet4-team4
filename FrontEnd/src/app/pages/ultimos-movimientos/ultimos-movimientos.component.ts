@@ -76,7 +76,7 @@ export class UltimosMovimientosComponent implements OnInit {
 
     getMovimientos(){
       this.user= this.comunicacion.getUser();
-      this.myService.obtenerMovimientos(this.authService.usuarioAutenticado.idCuenta).subscribe(data =>{this.movimientos = data, console.log(this.movimientos)} );
+      this.myService.obtenerMovimientos(this.authService.usuarioAutenticado.idCuenta).subscribe(data =>{this.movimientos = data.reverse(), console.log(this.movimientos)} );
       }
     
     

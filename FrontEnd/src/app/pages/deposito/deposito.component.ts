@@ -61,13 +61,14 @@ export class DepositoComponent implements OnInit {
       this.monedasService.actualizarBilletera(1,monedasDeCuenta).subscribe();
       let cuenta:Cuenta = new Cuenta(0,monto);
       this.myService.actualizarCuenta(this.authService.usuarioAutenticado.idCuenta,cuenta).subscribe();
-      this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=> this.router.navigate(["ultimos-movimientos"]));
+      
 
 
     }
     else{
       alert("Complete todos los campos!")
     }
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=> this.router.navigate(["ultimos-movimientos"]));
   }
 
   generarHash():number{

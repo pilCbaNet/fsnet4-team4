@@ -6,15 +6,17 @@
     <h1 class="text-center mt-4">No hay monedas en su cuenta</h1>
   </div>
 
-  <div *ngIf="billetera?.length !== 0">
+  <div *ngIf="billetera?.length !== 0" >
     <div class="row fila justify-content-evenly">
-      <h2 class="d-inline col-12 col-lg-6 text-center title">Saldo Total: {{cuenta.saldoTotal | currency}}</h2>
+      <div class="text-center "><p class="d-inline col-12 col-lg-6 text-center subtitle">Saldo Total: </p> </div>
+      <div class="text-center"><p class="d-inline col-12 col-lg-6 text-center title"> {{cuenta.saldoTotal | currency}}</p></div>
     </div>
     <div class="row fila justify-content-evenly">
-      <h2 class="d-inline col-12 col-lg-6 text-center title">CBU: {{cuenta.cbu}}</h2>
+      <div class="text-center "><p class="d-inline col-12 col-lg-6 text-center subtitle">CBU: </p> </div>
+      <div class="text-center"><p class="d-inline col-12 col-lg-6 text-center title"> {{cuenta.cbu}}</p></div>
     </div>
     <div class="overflow">
-      <table class="table table-hover table-dark">
+      <table class="table table-hover table-dark table-responsive">
         <thead>
           <tr class="text-center">
             <th>Moneda</th>
@@ -25,13 +27,13 @@
         <tbody>
           <tr class="text-center" *ngFor="let element of billetera; let i = index">
             
-            <td *ngIf="element.idMoneda == 1">Bitcoin </td>
-            <td *ngIf="element.idMoneda == 2">Ethereum </td>
-            <td *ngIf="element.idMoneda == 3">USDT</td>
-            <td *ngIf="element.idMoneda == 4">DAI </td>
-            <td *ngIf="element.idMoneda == 5">USDC</td>
-            <td>{{element.unidades}}</td>
-            <td class="col-1">{{element.saldoMoneda | currency}}</td>
+            <td *ngIf="element.idMoneda == 1 && element.unidades!=0 ">Bitcoin </td>
+            <td *ngIf="element.idMoneda == 2 && element.unidades!=0 ">Ethereum </td>
+            <td *ngIf="element.idMoneda == 3 && element.unidades!=0 ">USDT</td>
+            <td *ngIf="element.idMoneda == 4 && element.unidades!=0 ">DAI </td>
+            <td *ngIf="element.idMoneda == 5 && element.unidades!=0 ">USDC</td>
+            <td *ngIf="element.unidades!=0">{{element.unidades}}</td>
+            <td *ngIf="element.unidades!=0" class="col-1">{{element.saldoMoneda | currency}}</td>
             
           </tr>  
         </tbody>
@@ -59,8 +61,8 @@
 
   <div *ngIf="movimientos?.length !== 0" class="mt-4">
 
-    <div class="overflow">
-      <table class="table table-hover table-dark">
+    <div class="overflow table-responsive">
+      <table class="table table-hover table-dark" style="overflow-x:auto;">
         <thead>
           <tr class="text-center">
             <th>Operación</th>
@@ -72,14 +74,18 @@
         </thead>
         <tbody>
           <tr *ngFor="let element of movimientos; index as i" class="text-center">
-            <td [ngClass]="element.idTipoOperacion === 1 ? 'text-success' : 'text-danger'">
+            <td *ngIf="element.unidades!=0" [ngClass]="element.idTipoOperacion === 1 ? 'text-success' : 'text-danger'">
               <span *ngIf="element.idTipoOperacion === 1">Deposito</span>
               <span *ngIf="element.idTipoOperacion === 2">Extracción</span>
             </td>
-            <td>{{ element.idMoneda }}</td>
-            <td>{{ element.unidades }}</td>
-            <td class="col-1">{{ element.monto | currency}}</td>
-            <td>{{ element.fechaOperacion}}</td>
+            <td *ngIf="element.idMoneda == 1 && element.unidades!=0 ">Bitcoin </td>
+            <td *ngIf="element.idMoneda == 2 && element.unidades!=0">Ethereum </td>
+            <td *ngIf="element.idMoneda == 3 && element.unidades!=0">USDT</td>
+            <td *ngIf="element.idMoneda == 4 && element.unidades!=0">DAI </td>
+            <td *ngIf="element.idMoneda == 5 && element.unidades!=0">USDC</td>
+            <td *ngIf="element.unidades!=0" >{{ element.unidades }}</td>
+            <td *ngIf="element.unidades!=0"  class="col-1">{{ element.monto | currency}}</td>
+            <td *ngIf="element.unidades!=0" > {{ element.fechaOperacion| date: 'dd/MM/yyyy hh:mm'}}</td>
           </tr>
         </tbody>
       </table>
