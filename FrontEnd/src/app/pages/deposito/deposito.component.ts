@@ -22,7 +22,7 @@ export class DepositoComponent implements OnInit {
   constructor(private router:Router,private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService, private comunicacion:ComunicacionService, private monedasService:MonedasDeCuentaService, private authService: LoginService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
-      unidades: ['', [Validators.required]],
+      unidades: ['', [Validators.required, Validators.min(0.001)]],
     });
   }
   

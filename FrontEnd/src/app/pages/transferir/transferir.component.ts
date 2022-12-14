@@ -28,7 +28,7 @@ export class TransferirComponent implements OnInit {
   constructor(private myService:CuentaService,private formBuilder: FormBuilder, private service:CotizacionesService,private router:Router,private monedasService:MonedasDeCuentaService, private comunicacion:ComunicacionService,private authService: LoginService) {
     this.form = this.formBuilder.group({
       moneda: ['', [Validators.required,]],
-      unidades: ['', [Validators.required]],
+      unidades: ['', [Validators.required,Validators.min(0.001)]],
     });
   }
   

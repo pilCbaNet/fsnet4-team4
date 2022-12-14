@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="retirar()">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Moneda</label>
     <select 
@@ -19,6 +19,7 @@
       formControlName="unidades"
       id="unidades"
       [(ngModel)]="unidades" 
+      min="0"
     />
     <div *ngIf="Unidades?.errors  && Unidades?.touched">
       <p *ngIf="Unidades?.hasError('required')" class="text-danger">
@@ -31,6 +32,6 @@
     <label for="unidades" class="form-label">{{precio*unidades | currency}}</label>
   </div>
   <div class="text-center">
-    <button type="button" class="btn btn-primary btn-lg text-uppercase" (click)="retirar()" data-bs-dismiss="modal">Retirar</button>
+    <button disabled="true" [disabled]="this.form.invalid" type="submit" class="btn btn-primary btn-lg text-uppercase"  data-bs-dismiss="modal">Retirar</button>
   </div>
 </form>
