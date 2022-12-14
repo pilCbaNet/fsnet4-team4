@@ -11,7 +11,7 @@ namespace CryptoPILWebApi.Controllers
     [ApiController]
     public class OperacionesController : ControllerBase
     {
-
+        [EnableCors("AllowAllOrigins")]
         [HttpGet]
         public List<Operacion> Get()
         {
@@ -22,7 +22,7 @@ namespace CryptoPILWebApi.Controllers
 
         }
 
-       
+        [EnableCors("AllowAllOrigins")]
         [HttpGet("{idCuenta}")]
         public List<Operacion> Get(int idCuenta)
         {

@@ -11,6 +11,7 @@ namespace CryptoPILWebApi.Controllers
     public class CuentasController : ControllerBase
     {
         // GET: api/
+        [EnableCors("AllowAllOrigins")]
         [HttpGet]
         public List<Cuenta> Get()
         {
@@ -21,6 +22,7 @@ namespace CryptoPILWebApi.Controllers
         }
 
         // GET api/<CuentasController>/5
+        [EnableCors("AllowAllOrigins")]
         [HttpGet("{IdCuenta}")]
         public ActionResult<Cuenta> GetById(int IdCuenta)
         {

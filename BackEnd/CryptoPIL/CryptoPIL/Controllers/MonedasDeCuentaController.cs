@@ -13,6 +13,7 @@ namespace CryptoPILWebApi.Controllers
     public class MonedasDeCuentaController : ControllerBase
     {
         // GET: api/<MonedasDeCuentaController>
+        [EnableCors("AllowAllOrigins")]
         [HttpGet]
         public List<MonedasDeCuenta> Get()
         {
@@ -22,6 +23,7 @@ namespace CryptoPILWebApi.Controllers
             }
         }
 
+        [EnableCors("AllowAllOrigins")]
         [HttpGet("{IdCuenta}")]
         public List<MonedasDeCuenta> GetById(int IdCuenta)
         {
@@ -86,6 +88,7 @@ namespace CryptoPILWebApi.Controllers
 
 
         // PUT api/<MonedasDeCuentaController>/5
+        [EnableCors("AllowAllOrigins")]
         [HttpPut("{IdMonedasDeCuenta}")]
         public string Put(int IdMonedasDeCuenta, [FromBody] MonedasDeCuenta monedaDeCuentaActualizada)
         {

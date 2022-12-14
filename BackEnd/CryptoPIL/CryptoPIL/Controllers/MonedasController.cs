@@ -1,5 +1,6 @@
 ﻿
 using Entidades;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace CryptoPIL.Controllers
     [ApiController]
     public class MonedasController : ControllerBase
     {
+        [EnableCors("AllowAllOrigins")]
         [HttpGet]
         public List<Moneda> Get()
         {
@@ -31,7 +33,7 @@ namespace CryptoPIL.Controllers
                 }
         }
 
-
+        [EnableCors("AllowAllOrigins")]
         [HttpPost]
         public void Post([FromBody] Moneda oMoneda)
         {
@@ -42,7 +44,7 @@ namespace CryptoPIL.Controllers
             }
         }
 
-
+        [EnableCors("AllowAllOrigins")]
         [HttpPut]
         public void Put([FromBody] Moneda oMoneda)
         {

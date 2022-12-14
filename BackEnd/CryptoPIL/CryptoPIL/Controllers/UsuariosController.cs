@@ -9,6 +9,7 @@ namespace CryptoPIL.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
+        [EnableCors("AllowAllOrigins")]
         [HttpPost]
         [Route("Login")]
         public Usuario PostLogin([FromBody] Login oLogin)
@@ -25,6 +26,7 @@ namespace CryptoPIL.Controllers
         }
 
         // GET: api/<UsuariosController>
+        [EnableCors("AllowAllOrigins")]
         [HttpGet]
         public List<Usuario> Get()
         {
@@ -35,6 +37,7 @@ namespace CryptoPIL.Controllers
         }
 
         // GET api/<UsuariosController>/5
+        [EnableCors("AllowAllOrigins")]
         [HttpGet("{id}")]
         public Usuario? GetById(int id)
         {
@@ -66,6 +69,7 @@ namespace CryptoPIL.Controllers
         }
 
         // PUT api/<UsuariosController>/5
+        [EnableCors("AllowAllOrigins")]
         [HttpPut("{id}")]
         public string Put(int id, [FromBody] Usuario oUsuarioActualizado)
         {   
