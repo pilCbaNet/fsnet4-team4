@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="retirar()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Moneda</label>
+    <select 
+      id="moneda" 
+      class="form-control"
+      formControlName="moneda" 
+      [(ngModel)]="seleccionado" 
+      (change)="ShowSelected();" 
+    >
+      <option [ngValue]="moneda" *ngFor="let moneda of monedas" >{{moneda.nombre }}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="unidades" class="form-label">Unidades</label>
+    <input
+      type="number"
+      class="form-control"
+      formControlName="unidades"
+      id="unidades"
+      [(ngModel)]="unidades" 
+      min="0"
+    />
+    <div *ngIf="Unidades?.errors  && Unidades?.touched">
+      <p *ngIf="Unidades?.hasError('required')" class="text-danger">
+        Unidad requerida
+      </p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="unidades" class="form-label">Costo:</label>
+    <label for="unidades" class="form-label">{{precio*unidades | currency}}</label>
+  </div>
+  <div class="text-center">
+    <button disabled="true" [disabled]="this.form.invalid" type="submit" class="btn btn-primary btn-lg text-uppercase"  data-bs-dismiss="modal">Retirar</button>
+  </div>
+</form>

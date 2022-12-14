@@ -40,3 +40,15 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# BACKEND
+.vs/*
+backend/cryptoPil/.vs/*
+backend/cryptoPil/cryptoPil/bin/*
+backend/cryptoPil/cryptoPil/obj/*
+backEnd/CryptoPIL/Entidades/bin/*
+backEnd/CryptoPIL/Entidades/obj/*
+BackEnd/CryptoPIL/Negocio/bin/*
+BackEnd/CryptoPIL/Negocio/obj/*
+BackEnd/CryptoPIL/Negocios/bin/*
+BackEnd/CryptoPIL/Negocios/obj/*

@@ -1,0 +1,21 @@
+footer{
+  margin-top: 10px;
+  border-top: 1px solid grey;
+ 
+}
+
+a{
+  text-decoration: none;
+  
+}
+
+.logo{
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.titulo{
+  font-weight: bold;
+  font-size: 17px;
+}
+

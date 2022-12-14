@@ -1,0 +1,32 @@
+.container {
+  background-color: white;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  /* color: white; */
+}
+
+#hideTextBtn{
+  color: rgb(130, 141, 130);
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 3px;
+}
+
+.parrafo-uno {
+  color: gray;
+}
+
+#inputSearch {
+width: 100%;
+}
+
+#iconSearch {
+  display: flex;
+  position: relative;
+  top: 26px;
+  left: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+
