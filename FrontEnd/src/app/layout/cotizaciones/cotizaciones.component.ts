@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 
 interface Moneda {
+  idMoneda: number;
   nombre: string;
   precioXunidad: number;
 }
@@ -25,7 +26,7 @@ export class CotizacionesComponent implements OnInit {
 
   monedas: Moneda[] = []
   titles: string [] = [
-    '#',
+    'Iconos',
     'Moneda',
     'Precio',
   ]
