@@ -16,14 +16,14 @@
     <div class="overflow">
       <table class="table table-hover table-dark table-responsive">
         <thead>
-          <tr class="text-center">
-            <th>Moneda</th>
-            <th>Unidades</th>
-            <th>Importe</th>
+          <tr class="text-center col-md-4">
+            <th class="text-center col-md-4">Moneda</th>
+            <th class="text-center col-md-4">Unidades</th>
+            <th class="text-center col-md-4">Importe</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="text-center" *ngFor="let element of billetera; let i = index">
+          <tr class="text-center col-md-4" *ngFor="let element of billetera; let i = index">
             
             <td *ngIf="element.idMoneda == 1 && element.unidades!=0 ">Bitcoin </td>
             <td *ngIf="element.idMoneda == 2 && element.unidades!=0 ">Ethereum </td>

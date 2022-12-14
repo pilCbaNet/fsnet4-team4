@@ -11,20 +11,20 @@
 
     <thead>
       <tr>
-        <th *ngFor="let title of titles;">{{title}}</th>
+        <th class="text-center col-md-4" *ngFor="let title of titles;">{{title}}</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let moneda of monedas; let i = index">
-        <td>
+        <td class="text-center col-md-4">
           {{i + 1}}
         </td>
-        <td>
-          <span class="ms-3">{{ moneda.nombre }}</span>
+        <td class="text-center col-md-4">
+          <span >{{ moneda.nombre }}</span>
         </td>
-        <td>
-          <span class="ms-3">{{ moneda.precioXunidad | currency}}</span>
+        <td class="text-center col-md-4">
+          <span >{{ moneda.precioXunidad | currency}}</span>
         </td>
         
       </tr>
