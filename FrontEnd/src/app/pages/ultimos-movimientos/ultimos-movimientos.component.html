@@ -91,7 +91,7 @@
       </table>
     </div>
   </div>
-  <pagination-controls class="pagination" (pageChange)="p = $event"  previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+  <pagination-controls *ngIf="movimientos?.length > 5" class="pagination" (pageChange)="p = $event"  previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
   <!-- modal -->
 
   <div class="modal fade" id="depositar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
