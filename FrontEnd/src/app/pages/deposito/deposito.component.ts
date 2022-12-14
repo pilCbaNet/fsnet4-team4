@@ -58,10 +58,14 @@ export class DepositoComponent implements OnInit {
       let monedasDeCuenta: MonedasDeCuenta = new MonedasDeCuenta(this.authService.usuarioAutenticado.idCuenta,moneda,unidades,monto);
       console.log(monedasDeCuenta);
       let tieneSaldo: boolean = false;
-      this.monedasService.actualizarBilletera(1,monedasDeCuenta).subscribe(data =>{if( data != null){this.myService.depositar(operaciones).subscribe();
+      this.monedasService.actualizarBilletera(1,monedasDeCuenta).subscribe(data =>{if( data != null){this.myService.depositar(operaciones).subscribe(data =>{
         let cuenta:Cuenta = new Cuenta(0,monto);
-        this.myService.actualizarCuenta(this.authService.usuarioAutenticado.idCuenta,cuenta).subscribe();
-        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=> this.router.navigate(["ultimos-movimientos"]));}
+        this.myService.actualizarCuenta(this.authService.usuarioAutenticado.idCuenta,cuenta).subscribe(
+          data =>{this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=> this.router.navigate(["ultimos-movimientos"])); }
+        );
+        
+      });
+        }
       if(data == null){alert("Verifique Si tiene saldo y monedas para transferir")}
       });
 
