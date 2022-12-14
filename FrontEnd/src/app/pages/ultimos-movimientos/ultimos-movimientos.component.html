@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="text-center col-md-4" *ngFor="let element of billetera; let i = index">
+          <tr class="text-center col-md-4" *ngFor="let element of billetera; let i = index ">
             
             <td *ngIf="element.idMoneda == 1 && element.unidades!=0 ">Bitcoin </td>
             <td *ngIf="element.idMoneda == 2 && element.unidades!=0 ">Ethereum </td>
@@ -71,7 +71,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let element of movimientos; index as i" class="text-center">
+          <tr *ngFor="let element of movimientos | paginate: { itemsPerPage: 5, currentPage: p }" class="text-center">
             <td *ngIf="element.unidades!=0">
               <span *ngIf="element.idTipoOperacion === 1" class="badge bg-success">Deposito</span>
               <span *ngIf="element.idTipoOperacion === 2 " class="badge bg-danger">Extracción</span>
@@ -89,7 +89,7 @@
       </table>
     </div>
   </div>
-
+  <pagination-controls class="pagination" (pageChange)="p = $event"  previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
   <!-- modal -->
 
   <div class="modal fade" id="depositar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">

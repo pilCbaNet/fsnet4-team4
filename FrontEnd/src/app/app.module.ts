@@ -16,6 +16,7 @@ import { UltimosMovimientosComponent } from './pages/ultimos-movimientos/ultimos
 import { DepositoComponent } from './pages/deposito/deposito.component';
 import { TransferirComponent } from './pages/transferir/transferir.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HttpClientModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule
     
     
 

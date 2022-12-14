@@ -19,7 +19,8 @@ export class UltimosMovimientosComponent implements OnInit {
   billetera: any;
   bitcoin=0;
   dato : any;
-    
+  p: number = 1;
+  
   constructor(private myService: CuentaService, private comunicacion:ComunicacionService, private authService: LoginService) 
   {
    
