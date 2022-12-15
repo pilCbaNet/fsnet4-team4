@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
             this.autenticado=false;
             this.form.reset();
             alert("Verifique sus credenciales");
+            this.myService.logout();
             this.evento.emit(this.autenticado);
           }
         }
